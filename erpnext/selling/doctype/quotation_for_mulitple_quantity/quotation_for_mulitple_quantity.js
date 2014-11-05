@@ -115,23 +115,43 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	change_grid_labels:function(doc,cdt,cdn){
 		var me = this;
 		var field_label_map = {};
-		data=me.frm.doc.qty_label
-		if (data){
-			dict=JSON.parse(data)
-			var setup_field_label_map = function(fields_list,parentfield) {
+		label_fields_c=me.frm.doc.quantity_lable
+		label_fields_t=me.frm.doc.qty_label
+		if (label_fields_c || label_fields_t){
+			if (label_fields_c){
+				label_dict_c=JSON.parse(label_fields_c)
+			}
+			if (label_fields_t){
+				label_dict_t=JSON.parse(label_fields_t)	
+			}
+			var setup_field_label_map_c = function(fields_list,parentfield) {
 			var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
 				$.each(fields_list, function(i, fname) {
 					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
 					if(docfield) {
-						if (dict){
-							var label = docfield.label='Qty '+dict[fname]
+						if (label_dict_c){
+							var label = docfield.label='Qty '+label_dict_c[fname]
 							field_label_map[grid_doctype + "-" + fname] =
 							label.trim();
 						}
 					}
 				});
 			}
-			setup_field_label_map(["r_qty_4", "r_qty_5", "r_qty_6"],this.fname);
+			var setup_field_label_map_t = function(fields_list,parentfield) {
+			var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
+				$.each(fields_list, function(i, fname) {
+					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
+					if(docfield) {
+						if (label_dict_t){
+							var label = docfield.label='Qty '+label_dict_t[fname]
+							field_label_map[grid_doctype + "-" + fname] =
+							label.trim();
+						}
+					}
+				});
+			}
+			setup_field_label_map_c(["r_qty1", "r_qty2", "r_qty3"],this.fname);
+			setup_field_label_map_t(["r_qty_4", "r_qty_5", "r_qty_6"],this.fname);
 			$.each(field_label_map, function(fname, label) {
 				fname = fname.split("-");
 				var df = frappe.meta.get_docfield(fname[0], fname[1], me.frm.doc.name);

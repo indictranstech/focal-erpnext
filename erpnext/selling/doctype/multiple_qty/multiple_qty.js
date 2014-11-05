@@ -113,23 +113,43 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	change_grid_labels:function(doc,cdt,cdn){
 		var me = this;
 		var field_label_map = {};
-		data=me.frm.doc.qty_label
-		if (data){
-			dict=JSON.parse(data)
-			var setup_field_label_map = function(fields_list,parentfield) {
-			var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
+		label_fields_c=me.frm.doc.quantity_lable
+		label_fields_t=me.frm.doc.qty_label
+		if (label_fields_c || label_fields_t){
+			if (label_fields_c){
+				label_dict_c=JSON.parse(label_fields_c)
+			}
+			if (label_fields_t){
+				label_dict_t=JSON.parse(label_fields_t)	
+			}
+			var setup_field_label_map_c = function(fields_list,parentfield) {
+				var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
 				$.each(fields_list, function(i, fname) {
 					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
+						if(docfield) {
+							if (label_dict_c){
+								var label = docfield.label='Qty '+label_dict_c[fname]
+								field_label_map[grid_doctype + "-" + fname] =
+								label.trim();
+							}
+						}
+				});
+			}
+			var setup_field_label_map_t = function(fields_list,parentfield) {
+				var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
+					$.each(fields_list, function(i, fname) {
+					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
 					if(docfield) {
-						if (dict){
-							var label = docfield.label='Qty '+dict[fname]
+						if (label_dict_t){
+							var label = docfield.label='Qty '+label_dict_t[fname]
 							field_label_map[grid_doctype + "-" + fname] =
 							label.trim();
 						}
 					}
-				});
+					});
 			}
-			setup_field_label_map(["qty6", "qty7","qty8","qty9","qty10"],this.fname);
+			setup_field_label_map_c(["qty1", "qty2","qty3","qty4","qty5"],this.fname);
+			setup_field_label_map_t(["qty6", "qty7","qty8","qty9","qty10"],this.fname);
 			$.each(field_label_map, function(fname, label) {
 				fname = fname.split("-");
 				var df = frappe.meta.get_docfield(fname[0], fname[1], me.frm.doc.name);

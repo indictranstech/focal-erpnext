@@ -53,11 +53,11 @@ cur_frm.cscript.edit_prices_button = function() {
 }
 
 cur_frm.cscript.item_code = function(doc) {
-	if(!doc.item_name)
+	/*if(!doc.item_name)
 		cur_frm.set_value("item_name", doc.item_code);
 	if(!doc.description)
 		cur_frm.set_value("description", doc.item_name);
-}
+*/}
 
 cur_frm.fields_dict['default_bom'].get_query = function(doc) {
 	return {

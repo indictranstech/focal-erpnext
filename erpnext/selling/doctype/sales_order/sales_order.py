@@ -250,6 +250,53 @@ class SalesOrder(SellingController):
 	def get_portal_page(self):
 		return "order" if self.docstatus==1 else None
 
+
+	#anand	
+	def get_rm_total_price(self,docname):
+		for item in self.get('sales_order_details'):
+			if item.idx==docname:
+				rm_total_price=frappe.db.get_value("Raw Material Cost Sheet",item.raw_material_costing,'rm_total_price')
+				spec=frappe.db.get_value("Raw Material Costing Details",{"parent":item.raw_material_costing},'spec')
+				spec_type=frappe.db.get_value("Raw Material Costing Details",{"parent":item.raw_material_costing},'type')
+				item.rm_total_price=rm_total_price
+				item.spec=cstr(spec)+' '+cstr(spec_type)
+				if rm_total_price:
+					self.set_rate()
+		return "Done"
+
+	def get_pp_total_price(self,docname):
+		for item in self.get('sales_order_details'):
+			if item.idx==docname:
+				pp_total_price=frappe.db.get_value("Primary Process Costing",item.primary_process_costing,'pp_total')
+				item.pp_total_price=pp_total_price
+				if pp_total_price:
+					self.set_rate()			
+		return "Done"
+
+	def get_sm_total_price(self,docname):
+		for item in self.get('sales_order_details'):
+			if item.idx==docname:
+				sm_total_price=frappe.db.get_value("Sub Machining Costing",item.sub_machining_costing,'sm_total')
+				item.sm_total_price=sm_total_price
+				if sm_total_price:
+					self.set_rate()			
+		return "Done"
+
+	def get_sp_total_price(self,docname):
+		for item in self.get('sales_order_details'):
+			if item.idx==docname:
+				sp_total_price=frappe.db.get_value("Secondary Process Costing",item.secondary_process_costing,'sp_total')
+				item.sp_total_price=sp_total_price
+				if sp_total_price:
+					self.set_rate()
+		return "Done"
+
+	def set_rate(self):
+		for item in self.get('sales_order_details'):
+			item.rate=flt(item.rm_total_price)+flt(item.pp_total_price)+flt(item.sm_total_price)+flt(item.sp_total_price)
+		return "done"	
+
+
 	def get_batch_no_turnkey(self,idx):
 		for item in self.get('sales_order_details'):
 			if item.idx==idx:
@@ -324,8 +371,11 @@ class SalesOrder(SellingController):
 			c_obj.mark_percent=c.mark_percent
 			c_obj.price_with_markup=c.price_with_markup
 			c_obj.quote_ref=c.quote_ref
-			if field=='raw_material_costing':
+			c_obj.exchange_rate=c.exchange_rate
+			if field =='raw_material_costing':
 				c_obj.spec=c.spec
+				c_obj.unit_cost=c.unit_cost
+				c_obj.price=c.price
 				c_obj.od=c.od
 				c_obj.od_uom=c.od_uom
 				c_obj.id=c.id
@@ -333,6 +383,7 @@ class SalesOrder(SellingController):
 				c_obj.lg=c.lg
 				c_obj.lg_uom=c.lg_uom
 			elif field in ["raw_material_costing","primary_process_costing","secondary_process_costing"]:
+				c_obj.spec=c.spec	
 				c_obj.unit_cost=c.unit_cost
 			elif field in ["raw_material_costing","sub_machining_costing"]:
 				c_obj.price=c.price	

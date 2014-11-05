@@ -68,13 +68,6 @@
    "set_only_once": 0
   }, 
   {
-   "fieldname": "po_material_no", 
-   "fieldtype": "Data", 
-   "label": "PO Material No", 
-   "permlevel": 0, 
-   "precision": ""
-  }, 
-  {
    "allow_on_submit": 0, 
    "fieldname": "po_no", 
    "fieldtype": "Data", 
@@ -279,7 +272,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2014-10-31 16:14:39.803377", 
+ "modified": "2014-11-05 14:41:50.405984", 
  "modified_by": "Administrator", 
  "module": "Buying", 
  "name": "PO Material", 

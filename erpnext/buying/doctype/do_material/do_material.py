@@ -7,7 +7,7 @@ from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 
 class DOMaterial(Document):
-	def make_do(self):
+	def make_coc(self):
 		for d in self.get('raw_material_details'):
 			coc=frappe.new_doc("Certificate Of Conformance")
 			coc.client_name=self.requested_by

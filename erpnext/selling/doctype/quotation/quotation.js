@@ -187,32 +187,28 @@ cur_frm.cscript.send_sms = function() {
 
 cur_frm.fields_dict["quotation_details"].grid.get_field("raw_material_costing").get_query = function(doc) {
 	return {
-		filters: {
-			'from_quotation': doc.name
-		}
+		query:"erpnext.selling.doctype.quotation.quotation.raw_material_costing_query",
 	}
 }
 cur_frm.fields_dict["quotation_details"].grid.get_field("primary_process_costing").get_query = function(doc) {
 	return {
-		filters: {
-			'from_quotation': doc.name
-		}
+		query:"erpnext.selling.doctype.quotation.quotation.primary_process_costing_query",
 	}
+	
 }
 cur_frm.fields_dict["quotation_details"].grid.get_field("secondary_process_costing").get_query = function(doc) {
 	return {
-		filters: {
-			'from_quotation': doc.name
-		}
+		query:"erpnext.selling.doctype.quotation.quotation.secondary_process_costing_query",
 	}
+	
 }
 cur_frm.fields_dict["quotation_details"].grid.get_field("sub_machining_costing").get_query = function(doc) {
 	return {
-		filters: {
-			'from_quotation': doc.name
-		}
+		query:"erpnext.selling.doctype.quotation.quotation.sub_machining_costing_query",
 	}
+	
 }
+//Roshan
 cur_frm.cscript.rfq_material = function() {
 	return frappe.call({
 			doc: cur_frm.doc,

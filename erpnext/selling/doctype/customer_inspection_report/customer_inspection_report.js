@@ -1,3 +1,16 @@
+
+cur_frm.cscript.inspected_by=function(doc,cdt,cdn){
+	return frappe.call({
+		doc:cur_frm.doc,
+		method: "get_concat_det",
+		callback:function(r){
+			refresh_field('inspector_name')
+
+		}
+	})
+}
+
+
 cur_frm.cscript.onload=function(doc){
 	if (doc.quantity){
 		q=(parseInt(doc.quantity)/5)
@@ -49,3 +62,4 @@ cur_frm.cscript.quantity=function(doc,cdt,cdn){
 	}
 
 }
+ 

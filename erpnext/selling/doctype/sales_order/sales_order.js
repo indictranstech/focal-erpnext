@@ -104,7 +104,7 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 				});
 			
 		}
-		if (!doc.__islocal){
+		if (!doc.__islocal && doc.docstatus!=1){
 			cur_frm.add_custom_button(__('Create Job Orders'),cur_frm.cscript.create_job_order, "icon-truck");
 		}
 
@@ -243,7 +243,7 @@ cur_frm.cscript.create_job_order=function(doc,cdt,cdn){
 			doc: cur_frm.doc,
 			method: "create_job_order",
 			callback: function(r) {
-				refresh_field("id_value")
+				refresh_field(["id_value","job_order"])
 				if (r.message){
 					msgprint(__("Job Orders Created."));
 				}

@@ -196,6 +196,15 @@
    "precision": ""
   }, 
   {
+   "fieldname": "inspector_name", 
+   "fieldtype": "Read Only", 
+   "label": "Inspector Name", 
+   "options": "", 
+   "permlevel": 0, 
+   "precision": "", 
+   "read_only": 0
+  }, 
+  {
    "fieldname": "section_break_10", 
    "fieldtype": "Section Break", 
    "permlevel": 0, 
@@ -237,7 +246,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2014-10-30 10:47:47.979831", 
+ "modified": "2014-11-07 20:13:34.691027", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Customer Inspection Report", 

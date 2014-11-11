@@ -587,6 +587,24 @@ class SalesInvoice(SellingController):
 						"cost_center": self.write_off_cost_center
 					})
 				)
+				
+	def make_coc(self):
+		for d in self.get('entries'):
+			coc=frappe.new_doc("Certificate Of Conformance")
+			coc.client_name=self.customer
+			coc.do_no=self.name
+			coc.po_no=self.po_no
+			coc.part_name=d.item_name
+			coc.drawing_no=d.item_code
+			coc.part_no=d.part_number
+			coc.job_no=d.job_order
+			coc.batch_no=d.batch_no
+			coc.quantity=d.qty
+			coc.save(ignore_permissions=True)
+			coc.coc_no=coc.name
+			coc.save(ignore_permissions=True)
+			return "done"
+
 
 @frappe.whitelist()
 def get_bank_cash_account(mode_of_payment):

@@ -26,4 +26,10 @@ class CustomerInspectionReport(Document):
 			if not d.actual_mesurement:
 				frappe.msgprint(_("Please add Measurements for Row {0}").format(d.idx))
 
-	
+	def get_concat_det(self):
+		inspector=frappe.db.sql("""select first_name,last_name from `tabUser` where name='%s'"""%(self.inspected_by),as_list=1)
+		if inspector:
+			self.inspector_name=inspector[0][0] + " " + inspector[0][1]
+
+
+			

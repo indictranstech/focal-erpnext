@@ -43,3 +43,4 @@ def get_so_price_list(args, item_doc, out): #Rohit_sw
 							return p_rate[0][0]
 		else:
 			return 0.0
+

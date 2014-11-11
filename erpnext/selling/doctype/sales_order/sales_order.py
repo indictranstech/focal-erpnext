@@ -320,7 +320,12 @@ class SalesOrder(SellingController):
 	def create_job_order(self):
 		for item in self.get('sales_order_details'):
 			name_series=self.get_name_series()
-			name=self.get_job_order(item,name_series)
+			if item.job_order:
+				name=item_code
+			else:
+				name=self.get_job_order(item,name_series)
+				item.job_order=name
+				self.save(ignore_permissions=True)
 			self.append_values(name,item.raw_material_costing,"Raw Material Costing Details","Raw Material Cost Sheet","raw_material_costing_details","raw_material_costing","Raw Material Costing",item)
 			self.append_values(name,item.primary_process_costing,"Primary Process Details","Primary Process Costing","primary_process","primary_process_costing","Primary Process Costing",item)
 			self.append_values(name,item.secondary_process_costing,"Secondary Process Details","Secondary Process Costing","secondary_process","secondary_process_costing","Secondary Process Costing",item)
@@ -332,6 +337,7 @@ class SalesOrder(SellingController):
 			name=self.name.split("-")
 			jo_name='JOB-'+name[1]+'-'+cstr(cint(self.id_value)+1)
 			self.id_value=cint(self.id_value)+1
+			self.save(ignore_permissions=True)
 			return jo_name
        
 	def get_job_order(self,item,series):
@@ -570,6 +576,3 @@ def make_maintenance_visit(source_name, target_doc=None):
 
 		return doclist
 
-@frappe.whitelist()
-def create_job_order(doc):
-		frappe.errprint("hii")

@@ -186,7 +186,7 @@
  ], 
  "icon": "icon-user", 
  "idx": 1, 
- "modified": "2014-09-10 17:53:09.286715", 
+ "modified": "2014-11-07 19:38:43.795017", 
  "modified_by": "Administrator", 
  "module": "Buying", 
  "name": "Supplier", 
@@ -257,5 +257,4 @@
  ], 
  "search_fields": "supplier_name,supplier_type", 
  "title_field": "supplier_name"
-
 }

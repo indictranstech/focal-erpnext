@@ -40,6 +40,7 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			locals.DocType[cur_frm.doctype].default_print_format = "POS Invoice";
 			cur_frm.setup_print_layout();
 		}
+		
 	},
 
 	refresh: function(doc, dt, dn) {
@@ -87,6 +88,9 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		if (doc.docstatus===0 && !this.pos_active) {
 			cur_frm.cscript.sales_order_btn();
 			cur_frm.cscript.delivery_note_btn();
+		}
+		if(doc.docstatus == 1){
+			cur_frm.add_custom_button(__('Create COC'),cur_frm.cscript.make_coc, "icon-truck");
 		}
 	},
 
@@ -216,7 +220,7 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 	entries_on_form_rendered: function(doc, grid_row) {
 		erpnext.setup_serial_no(grid_row)
 	}
-
+	
 });
 
 // for backward compatibility: combine new and previous states
@@ -404,3 +408,14 @@ cur_frm.cscript.send_sms = function() {
 	var sms_man = new SMSManager(cur_frm.doc);
 }
 
+cur_frm.cscript.make_coc=function(doc,cdt,cdn){
+		return frappe.call({
+			doc: cur_frm.doc,
+			method: "make_coc",
+			callback: function(r) {
+				if (r.message){
+					msgprint(__("COC\'s Created."));
+				}
+			}
+		})
+}

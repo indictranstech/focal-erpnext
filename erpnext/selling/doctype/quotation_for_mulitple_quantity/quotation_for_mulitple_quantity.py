@@ -247,9 +247,9 @@ def _make_sales_order(source_name, target_doc=None, ignore_permissions=False):
 					"docstatus": ["=", 1]
 				}
 			},
-                        "Multiple Quantity Item": {
-                                "doctype": "Sales Order Item"                    
-                        },
+            "Multiple Quantity Item": {
+                "doctype": "Sales Order Item"                    
+            },
 			"Sales Taxes and Charges": {
 				"doctype": "Sales Taxes and Charges",
 				"add_if_empty": True

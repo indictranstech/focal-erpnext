@@ -110,7 +110,6 @@ Batch No (Farmout)","","batch",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Order Item-job_order""","Sales Order Item","Data","Job Order","base_amount","","","","job_order",0,0,1,0,"","",0,"",0,0,0,0,0,0
 "","""Multiple Quantity Item-material_type""","Multiple Quantity Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Quotation Item-material_type""","Quotation Item","Data","Material Type","part_number","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Production Order-material_type""","Production Order","Data","Material Type","part_number","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Job Order-material_type""","Job Order","Data","Material Type","part_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Order Item-material_type""","Sales Order Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Multiple Qty Item-material_type""","Multiple Qty Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0

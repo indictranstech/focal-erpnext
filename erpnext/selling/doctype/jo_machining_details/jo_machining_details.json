@@ -9,6 +9,14 @@
  "document_type": "", 
  "fields": [
   {
+   "fieldname": "sub_machining_costing", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Sub Machining Costing", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "allow_on_submit": 0, 
    "fieldname": "type", 
    "fieldtype": "Data", 
@@ -187,7 +195,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2014-10-21 22:17:11.573123", 
+ "modified": "2014-12-04 11:46:31.293965", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "JO Machining Details", 

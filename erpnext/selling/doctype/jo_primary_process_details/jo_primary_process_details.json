@@ -9,6 +9,13 @@
  "document_type": "", 
  "fields": [
   {
+   "fieldname": "primary_process_costing", 
+   "fieldtype": "Data", 
+   "label": "Primary Process Costing", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "allow_on_submit": 0, 
    "fieldname": "spec", 
    "fieldtype": "Data", 
@@ -206,7 +213,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2014-10-21 22:15:23.582861", 
+ "modified": "2014-12-03 20:17:05.205089", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "JO Primary Process Details", 

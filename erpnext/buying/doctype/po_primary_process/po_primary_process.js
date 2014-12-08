@@ -44,10 +44,12 @@ erpnext.buying.PoPrimaryProcessController = frappe.ui.form.Controller.extend({
 $.extend(cur_frm.cscript, new erpnext.buying.PoPrimaryProcessController({frm: cur_frm}));
 
 cur_frm.cscript.job_order=function(){
+	console.log("i the job order");
 	return frappe.call({
 			doc: cur_frm.doc,
 			method: "get_details",
 			callback: function(r) {
+				console.log("callback");
 				refresh_field(['primary_process_details','qty','part_name','drawing_no','po_number','batch_no']);
 			}
 		});

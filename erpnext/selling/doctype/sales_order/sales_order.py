@@ -321,7 +321,7 @@ class SalesOrder(SellingController):
 		for item in self.get('sales_order_details'):
 			name_series=self.get_name_series()
 			if item.job_order:
-				name=item_code
+				name=item.job_order
 			else:
 				name=self.get_job_order(item,name_series)
 				item.job_order=name
@@ -353,6 +353,7 @@ class SalesOrder(SellingController):
 		jo.po_no=self.po_no
 		jo.start_date=self.from_date
 		jo.delivery_date=self.delivery_date
+		jo.material_type=item.material_type
 		jo.save(ignore_permissions=True)
 		jo.job_order=jo.name
 		jo.save(ignore_permissions=True)
@@ -388,11 +389,18 @@ class SalesOrder(SellingController):
 				c_obj.id_uom=c.id_uom
 				c_obj.lg=c.lg
 				c_obj.lg_uom=c.lg_uom
-			elif field in ["raw_material_costing","primary_process_costing","secondary_process_costing"]:
+				c_obj.raw_material_costing=item.raw_material_costing
+			elif field == "primary_process_costing":
 				c_obj.spec=c.spec	
 				c_obj.unit_cost=c.unit_cost
-			elif field in ["raw_material_costing","sub_machining_costing"]:
-				c_obj.price=c.price	
+				c_obj.primary_process_costing=item.primary_process_costing
+			elif field =='secondary_process_costing':
+				c_obj.spec=c.spec	
+				c_obj.unit_cost=c.unit_cost
+				c_obj.secondary_process_costing=item.secondary_process_costing
+			elif field =="sub_machining_costing":
+				c_obj.price=c.price
+				c_obj.sub_machining_costing=item.sub_machining_costing	
 			jo_obj.save(ignore_permissions=True)
 
 

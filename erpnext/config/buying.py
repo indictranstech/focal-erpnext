@@ -92,11 +92,11 @@ def get_data():
 					"name": "DO Machining",
 					"description": _("DO Machining"),
 				},
-				{
-					"type": "doctype",
-					"name": "Certificate Of Conformance",
-					"description": _("Certificate Of Conformance"),
-				}
+				# {
+				# 	"type": "doctype",
+				# 	"name": "Certificate Of Conformance",
+				# 	"description": _("Certificate Of Conformance"),
+				# }
 						]
 		},
 		{

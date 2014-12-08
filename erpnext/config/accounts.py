@@ -40,6 +40,11 @@ def get_data():
 					"description": _("Tree of finanial accounts."),
 					"doctype": "Account",
 				},
+				{
+					"type": "doctype",
+					"name": "Certificate Of Conformance",
+					"description": _("Certificate Of Conformance"),
+				}
 			]
 		},
 		{

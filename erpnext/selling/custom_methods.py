@@ -10,7 +10,6 @@ from erpnext.setup.utils import get_exchange_rate
 
 
 def get_so_price_list(args, item_doc, out): #Rohit_sw
-	# frappe.errprint(out)
 	if args.predoc=='Multiple Qty':
 		parent=frappe.db.get_value('Item Price',{'item_code':args.item_code,'price_list':args.price_list},'name')
 		return frappe.db.get_value('Singular Price List',{'parent':parent,'customer_code':args.customer,'quantity':out.qty},'rate') or 0.0

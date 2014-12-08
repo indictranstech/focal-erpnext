@@ -603,7 +603,7 @@ class SalesInvoice(SellingController):
 			coc.save(ignore_permissions=True)
 			coc.coc_no=coc.name
 			coc.save(ignore_permissions=True)
-			return "done"
+		return "done"
 
 
 @frappe.whitelist()

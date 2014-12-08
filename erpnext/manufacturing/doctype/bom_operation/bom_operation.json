@@ -42,6 +42,14 @@
    "reqd": 0
   }, 
   {
+   "fieldname": "machine_no", 
+   "fieldtype": "Link", 
+   "label": "Machine No", 
+   "options": "Machine", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "fieldname": "set_up_time", 
    "fieldtype": "Data", 
    "label": "Set Up Time", 
@@ -101,7 +109,7 @@
  ], 
  "idx": 1, 
  "istable": 1, 
- "modified": "2014-06-19 15:25:28.932545", 
+ "modified": "2014-12-04 17:41:58.036125", 
  "modified_by": "Administrator", 
  "module": "Manufacturing", 
  "name": "BOM Operation", 

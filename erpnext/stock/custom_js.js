@@ -8,6 +8,6 @@ set_label=function(label){
 	cur_frm.fields_dict.item_name.set_label('Part'+' '+'Name', cur_frm.doc);
     cur_frm.fields_dict.item_group.set_label('Type', cur_frm.doc);
 }
-cur_frm.cscript.item_name = function(doc) {
-	cur_frm.set_value("description", doc.item_name);
-}
+// cur_frm.cscript.item_name = function(doc) {
+// 	cur_frm.set_value("description", doc.item_name);
+// }

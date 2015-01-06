@@ -334,11 +334,6 @@
    "permlevel": 0
   }, 
   {
-   "fieldname": "column_break_33", 
-   "fieldtype": "Column Break", 
-   "permlevel": 0
-  }, 
-  {
    "fieldname": "net_total_export", 
    "fieldtype": "Currency", 
    "label": "Net Total", 

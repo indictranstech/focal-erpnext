@@ -103,12 +103,23 @@ cur_frm.cscript['Update Finished Goods'] = function() {
 	cur_frm.cscript.make_se('Manufacture');
 }
 
+// cur_frm.fields_dict['production_item'].get_query = function(doc) {
+// 	return {
+// 		filters:[
+// 			['Item', 'is_pro_applicable', '=', 'Yes']
+// 		]
+// 	}
+// }
+
+
 cur_frm.fields_dict['production_item'].get_query = function(doc) {
-	return {
-		filters:[
-			['Item', 'is_pro_applicable', '=', 'Yes']
-		]
-	}
+
+	if(doc.sales_order)
+
+		return "select item_code from `tabItem` where is_pro_applicable='Yes' and item_code in (select item_code from `tabSales Order Item` where parent='"+doc.sales_order+"')"
+
+	else
+		msgprint("Sales Order field can not be blank")
 }
 
 cur_frm.fields_dict['project_name'].get_query = function(doc, dt, dn) {

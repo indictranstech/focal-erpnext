@@ -67,3 +67,20 @@ cur_frm.cscript.supplier=function(doc,cdt,cdn){
 		}
 	});
 }
+
+cur_frm.cscript.validate = function(doc,cdt,cdn) {
+	cur_frm.cscript.update_totals(doc);
+}
+
+
+cur_frm.cscript.update_totals = function(doc) {
+	var td=0.0;
+	var cl=doc.raw_material_details || [ ]
+
+	for(var i in cl) {
+		td +=cl[i].price*cl[i].qty
+	}
+	var doc = locals[doc.doctype][doc.name];
+	doc.net_total = td;
+	refresh_many(['net_total']);
+}

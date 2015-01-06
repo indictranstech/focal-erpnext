@@ -322,9 +322,11 @@ class SalesOrder(SellingController):
 			name_series=self.get_name_series()
 			if item.job_order:
 				name=item.job_order
+				#part_no=item.part_number
 			else:
 				name=self.get_job_order(item,name_series)
 				item.job_order=name
+				#part_no=item.part_number
 				self.save(ignore_permissions=True)
 			self.append_values(name,item.raw_material_costing,"Raw Material Costing Details","Raw Material Cost Sheet","raw_material_costing_details","raw_material_costing","Raw Material Costing",item)
 			self.append_values(name,item.primary_process_costing,"Primary Process Details","Primary Process Costing","primary_process","primary_process_costing","Primary Process Costing",item)
@@ -346,6 +348,7 @@ class SalesOrder(SellingController):
 			jo.name=series
 		jo.customer_code=self.customer
 		jo.part_name=item.item_name
+		jo.part_no=item.part_number
 		jo.drawing_no=item.item_code
 		jo.qty=item.qty
 		jo.batch_no=item.batch_no

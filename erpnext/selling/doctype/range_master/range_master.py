@@ -11,7 +11,7 @@ import json
 class RangeMaster(Document):
 	def validate(self):
 		self.validate_range()#anand
-		self.check_duplicate()
+		#self.check_duplicate()
 
 	def validate_range(self):
 		range_count=0

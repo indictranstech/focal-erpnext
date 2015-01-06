@@ -141,10 +141,12 @@ erpnext.selling.SellingController = erpnext.TransactionController.extend({
 
 	price_list_rate: function(doc, cdt, cdn) {
 		var item = frappe.get_doc(cdt, cdn);
-		frappe.model.round_floats_in(item, ["price_list_rate", "discount_percentage"]);
+		//frappe.model.round_floats_in(item, ["price_list_rate", "discount_percentage"]);
 
-		item.rate = flt(item.price_list_rate * (1 - item.discount_percentage / 100.0),
-			precision("rate", item));
+		// item.rate = flt(item.price_list_rate * (1 - item.discount_percentage / 100.0),
+		// 	precision("rate", item));
+		
+		item.rate = 0.0;
 
 		this.calculate_taxes_and_totals();
 	},

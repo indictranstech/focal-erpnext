@@ -368,8 +368,7 @@
    "reqd": 0, 
    "width": "150px"
   }, 
-  
-  {
+ {
    "fieldname": "taxes", 
    "fieldtype": "Section Break", 
    "label": "Taxes and Charges", 

@@ -19,7 +19,8 @@ class CustomerInspectionReport(Document):
 		return "done"
 
 	def on_update(self):
-		self.validate_measurements()
+		pass
+		#self.validate_measurements()
 			
 	def validate_measurements(self):
 		for d in self.get('measurements'):

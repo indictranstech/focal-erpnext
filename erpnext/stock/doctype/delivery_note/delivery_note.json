@@ -369,19 +369,6 @@
    "width": "150px"
   }, 
   {
-   "fieldname": "column_break_33", 
-   "fieldtype": "Column Break", 
-   "permlevel": 0
-  }, 
-  {
-   "fieldname": "net_total_export", 
-   "fieldtype": "Currency", 
-   "label": "Net Total", 
-   "options": "currency", 
-   "permlevel": 0, 
-   "read_only": 1
-  }, 
-  {
    "fieldname": "taxes", 
    "fieldtype": "Section Break", 
    "label": "Taxes and Charges", 

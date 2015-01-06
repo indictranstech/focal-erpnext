@@ -1,7 +1,7 @@
 {
  "autoname": "naming_series:", 
  "creation": "2014-06-16 08:41:59.078274", 
- "default_print_format": "Production Order Details Print", 
+ "default_print_format": "", 
  "docstatus": 0, 
  "doctype": "DocType", 
  "document_type": "Transaction", 
@@ -119,7 +119,7 @@
   }
  ], 
  "icon": "icon-cogs", 
- "modified": "2014-10-04 11:50:05.695719", 
+ "modified": "2015-01-06 21:18:46.778951", 
  "modified_by": "Administrator", 
  "module": "Manufacturing", 
  "name": "Production Order Details", 

@@ -219,6 +219,20 @@
    "precision": ""
   }, 
   {
+   "fieldname": "section_break_15", 
+   "fieldtype": "Section Break", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
+   "fieldname": "heat_no_details", 
+   "fieldtype": "Table", 
+   "label": "Heat No Details", 
+   "options": "Heat No Details", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "fieldname": "amended_from", 
    "fieldtype": "Link", 
    "label": "Amended From", 
@@ -231,7 +245,7 @@
   {
    "fieldname": "r_qty", 
    "fieldtype": "Data", 
-   "hidden": 1, 
+   "hidden": 0, 
    "label": "r_qty", 
    "permlevel": 0, 
    "precision": "", 
@@ -246,7 +260,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2014-11-07 20:13:34.691027", 
+ "modified": "2015-01-09 19:18:36.643975", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Customer Inspection Report", 

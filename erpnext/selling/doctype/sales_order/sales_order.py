@@ -343,6 +343,12 @@ class SalesOrder(SellingController):
 			return jo_name
        
 	def get_job_order(self,item,series):
+		mat_type=item.material_type or ""
+		if not item.material_type and item.raw_material_costing:
+			rmc=frappe.get_doc("Raw Material Cost Sheet",item.raw_material_costing).raw_material_costing_details
+			for d in rmc:
+				if d.idx==1:
+					mat_type=d.spec+" "+d.type
 		jo=frappe.new_doc("Job Order")
 		if series:
 			jo.name=series
@@ -356,7 +362,7 @@ class SalesOrder(SellingController):
 		jo.po_no=self.po_no
 		jo.start_date=self.from_date
 		jo.delivery_date=self.delivery_date
-		jo.material_type=item.material_type
+		jo.material_type=mat_type
 		jo.save(ignore_permissions=True)
 		jo.job_order=jo.name
 		jo.save(ignore_permissions=True)

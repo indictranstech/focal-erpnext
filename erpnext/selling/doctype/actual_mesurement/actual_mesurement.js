@@ -1,5 +1,5 @@
 cur_frm.cscript.onload=function(doc){
-	cur_frm.refresh_field("from_doc")
+	cur_frm.refresh_field("from_doc")	
 }
 cur_frm.cscript.validate = function(doc) {
 	if (doc.__islocal!=1){
@@ -12,3 +12,13 @@ cur_frm.cscript.validate = function(doc) {
 		}	
 	}	
 }
+cur_frm.cscript.refresh=function(){
+	var obj=frappe.route_options
+	if (obj){
+		cur_frm.set_value("from_doc",obj.from_doc)
+		cur_frm.refresh_field("from_doc")
+	}
+	frappe.route_options = null;
+}
+
+<th colspan="4" style="text-align:center;">Heat</th>

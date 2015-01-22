@@ -21,4 +21,3 @@ cur_frm.cscript.refresh=function(){
 	frappe.route_options = null;
 }
 
-<th colspan="4" style="text-align:center;">Heat</th>

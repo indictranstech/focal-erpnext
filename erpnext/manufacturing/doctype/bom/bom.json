@@ -1,5 +1,4 @@
 {
- "allow_attach": 0, 
  "allow_copy": 0, 
  "allow_import": 1, 
  "allow_rename": 0, 
@@ -113,7 +112,7 @@
   {
    "fieldname": "costing", 
    "fieldtype": "Section Break", 
-   "label": "Costing", 
+   "label": "Information", 
    "oldfieldtype": "Section Break", 
    "permlevel": 0
   }, 
@@ -248,7 +247,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2014-09-08 16:30:46.265762", 
+ "modified": "2015-01-22 10:53:18.448167", 
  "modified_by": "Administrator", 
  "module": "Manufacturing", 
  "name": "BOM", 

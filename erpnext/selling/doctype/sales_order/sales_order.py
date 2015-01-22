@@ -348,7 +348,7 @@ class SalesOrder(SellingController):
 			rmc=frappe.get_doc("Raw Material Cost Sheet",item.raw_material_costing).raw_material_costing_details
 			for d in rmc:
 				if d.idx==1:
-					mat_type=d.spec+" "+d.type
+					mat_type=cstr(d.spec)+" "+cstr(d.type)
 		jo=frappe.new_doc("Job Order")
 		if series:
 			jo.name=series

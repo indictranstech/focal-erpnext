@@ -35,6 +35,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Multiple Qty",
+					"label":"Quotation For Multiple Qty",
 					"description": _("Quotes to Leads or Customers."),
 				},
 				{

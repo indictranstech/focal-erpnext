@@ -3,7 +3,11 @@
  "allow_import": 0, 
  "allow_rename": 0, 
  "autoname": "H.######", 
+<<<<<<< HEAD
  "creation": "2015-01-14 17:23:32.972587", 
+=======
+ "creation": "2015-01-09 17:07:33.316215", 
+>>>>>>> 77dc7cb21e2aba02d2ee0070011e2416d85fa0fd
  "custom": 0, 
  "docstatus": 0, 
  "doctype": "DocType", 
@@ -36,7 +40,11 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
+<<<<<<< HEAD
  "modified": "2015-01-14 17:23:32.972587", 
+=======
+ "modified": "2015-01-14 12:04:44.402803", 
+>>>>>>> 77dc7cb21e2aba02d2ee0070011e2416d85fa0fd
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Heat No Details", 

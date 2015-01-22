@@ -120,10 +120,36 @@ class Quotation(SellingController):
 		return print_lst
 
 
-	
+	#anand	
+	def refresh_rm_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.raw_material_costing:
+				self.get_rm_total_price(item.idx)
+		return "Done"
+
+	#anand	
+	def refresh_pp_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.primary_process_costing:
+				self.get_pp_total_price(item.idx)
+		return "Done"
+
+	#anand	
+	def refresh_sp_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.secondary_process_costing:
+				self.get_sp_total_price(item.idx)
+		return "Done"
+	#anand	
+	def refresh_sm_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.sub_machining_costing:
+				self.get_sm_total_price(item.idx)
+		return "Done"
 
 	#anand	
 	def get_rm_total_price(self,docname):
+		frappe.errprint("updated rm")
 		for item in self.get('quotation_details'):
 			if item.idx==docname:
 				rm_total_price=frappe.db.get_value("Raw Material Cost Sheet",item.raw_material_costing,'rm_total_price')
@@ -133,18 +159,23 @@ class Quotation(SellingController):
 				item.spec=cstr(spec)+' '+cstr(spec_type)
 				if rm_total_price:
 					self.set_rate()
+				# if not ___islocal:
+				# 	self.save(ignore_permissions=True)
 		return "Done"
 
 	def get_pp_total_price(self,docname):
+		frappe.errprint("updated pp")
 		for item in self.get('quotation_details'):
 			if item.idx==docname:
 				pp_total_price=frappe.db.get_value("Primary Process Costing",item.primary_process_costing,'pp_total')
 				item.pp_total_price=pp_total_price
 				if pp_total_price:
-					self.set_rate()			
+					self.set_rate()
+			# self.save(ignore_permissions=True)			
 		return "Done"
 
 	def get_sm_total_price(self,docname):
+		frappe.errprint("updated sm")
 		for item in self.get('quotation_details'):
 			if item.idx==docname:
 				sm_total_price=frappe.db.get_value("Sub Machining Costing",item.sub_machining_costing,'sm_total')
@@ -154,6 +185,7 @@ class Quotation(SellingController):
 		return "Done"
 
 	def get_sp_total_price(self,docname):
+		frappe.errprint("updated sp")
 		for item in self.get('quotation_details'):
 			if item.idx==docname:
 				sp_total_price=frappe.db.get_value("Secondary Process Costing",item.secondary_process_costing,'sp_total')

@@ -112,7 +112,7 @@
   {
    "fieldname": "costing", 
    "fieldtype": "Section Break", 
-   "label": "Costing", 
+   "label": "Information", 
    "oldfieldtype": "Section Break", 
    "permlevel": 0
   }, 

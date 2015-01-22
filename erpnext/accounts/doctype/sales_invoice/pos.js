@@ -317,6 +317,7 @@ erpnext.POS = Class.extend({
 		var child = frappe.model.add_child(me.frm.doc, this.frm.doctype + " Item",
 			this.frm.cscript.fname);
 		child.item_code = item_code;
+		console.log(child)
 
 		if (serial_no)
 			child.serial_no = serial_no;

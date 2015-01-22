@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 import frappe
 
-from frappe.utils import flt, nowdate
+from frappe.utils import flt,cint, nowdate
 from frappe import _
 from frappe.model.document import Document
 
@@ -25,9 +25,16 @@ class ProductionOrder(Document):
 		self.validate_sales_order()
 		self.validate_warehouse()
 		self.set_fixed_cost()
+		# self.calculate_oprating_cost()
 
 		from erpnext.utilities.transaction_base import validate_uom_is_integer
 		validate_uom_is_integer(self, "stock_uom", ["qty", "produced_qty"])
+
+	def calculate_oprating_cost(self):
+		for d in self.get('bom_operation') :
+			cost=(flt(d.set_up_time)+flt(d.time_in_mins)+flt(d.load_up_time)+flt(d.tip_change_time)+flt(d.inspection_time)) * (flt(d.hour_rate))
+			d.operating_cost=cost
+
 
 	def validate_bom_no(self):
 		if self.bom_no:
@@ -156,6 +163,10 @@ class ProductionOrder(Document):
 		if not self.production_order_details:
 			self.production_order_details=name
 			self.save()
+
+		for d in self.get('bom_operation') :
+			cost=(flt(d.set_up_time)+flt(d.time_in_mins)+flt(d.load_up_time)+flt(d.tip_change_time)+flt(d.inspection_time)) * (flt(d.hour_rate))
+			d.operating_cost=cost
 
 	def bom_operations(self):
 		bom = frappe.db.sql("""select name from `tabBOM` where item=%s

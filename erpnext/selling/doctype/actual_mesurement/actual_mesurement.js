@@ -1,5 +1,5 @@
 cur_frm.cscript.onload=function(doc){
-	cur_frm.refresh_field("from_doc")
+	cur_frm.refresh_field("from_doc")	
 }
 cur_frm.cscript.validate = function(doc) {
 	if (doc.__islocal!=1){
@@ -20,3 +20,4 @@ cur_frm.cscript.refresh=function(){
 	}
 	frappe.route_options = null;
 }
+

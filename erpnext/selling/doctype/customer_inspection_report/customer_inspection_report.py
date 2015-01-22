@@ -41,3 +41,4 @@ class CustomerInspectionReport(Document):
 			for i in range(0,cint(qty)):
 				h = self.append('heat_no_details', {})
 				h.idx=i+1
+

@@ -219,6 +219,12 @@
    "precision": ""
   }, 
   {
+   "fieldname": "section_break_15", 
+   "fieldtype": "Section Break", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "fieldname": "heat_no_details", 
    "fieldtype": "Table", 
    "label": "Heat No Details", 
@@ -239,7 +245,7 @@
   {
    "fieldname": "r_qty", 
    "fieldtype": "Data", 
-   "hidden": 1, 
+   "hidden": 0, 
    "label": "r_qty", 
    "permlevel": 0, 
    "precision": "", 

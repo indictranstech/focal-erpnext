@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 from frappe import msgprint, throw, _
+from frappe.utils import cstr, flt, getdate, comma_and,cint
 
 class CustomerInspectionReport(Document):
 	def get_details(self):
@@ -16,7 +17,8 @@ class CustomerInspectionReport(Document):
 		self.quantity=jo.qty
 		self.po_no=jo.po_no
 		self.batch_no=jo.batch_no
-		return "done"
+		self.add_child_toheat(jo.qty)
+		return self.quantity
 
 	def on_update(self):
 		pass
@@ -33,4 +35,9 @@ class CustomerInspectionReport(Document):
 			self.inspector_name=inspector[0][0] + " " + inspector[0][1]
 
 
-			
+	def add_child_toheat(self,qty):
+		if qty:
+			self.set('heat_no_details', [])
+			for i in range(0,cint(qty)):
+				h = self.append('heat_no_details', {})
+				h.idx=i+1

@@ -12,3 +12,11 @@ cur_frm.cscript.validate = function(doc) {
 		}	
 	}	
 }
+cur_frm.cscript.refresh=function(){
+	var obj=frappe.route_options
+	if (obj){
+		cur_frm.set_value("from_doc",obj.from_doc)
+		cur_frm.refresh_field("from_doc")
+	}
+	frappe.route_options = null;
+}

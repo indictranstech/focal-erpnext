@@ -119,6 +119,9 @@ class Quotation(SellingController):
 			print_lst.append(lst1)
 		return print_lst
 
+
+	
+
 	#anand	
 	def get_rm_total_price(self,docname):
 		for item in self.get('quotation_details'):
@@ -158,6 +161,33 @@ class Quotation(SellingController):
 				if sp_total_price:
 					self.set_rate()
 		return "Done"
+	#anand	
+	def refresh_rm_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.raw_material_costing:
+				self.get_rm_total_price(item.idx)
+		return "Done"
+
+	#anand	
+	def refresh_pp_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.primary_process_costing:
+				self.get_pp_total_price(item.idx)
+		return "Done"
+
+	#anand	
+	def refresh_sp_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.secondary_process_costing:
+				self.get_sp_total_price(item.idx)
+		return "Done"
+	#anand	
+	def refresh_sm_total_price(self,docname):
+		for item in self.get('quotation_details'):
+			if item.sub_machining_costing:
+				self.get_sm_total_price(item.idx)
+		return "Done"
+
 
 	def set_rate(self):
 		for item in self.get('quotation_details'):

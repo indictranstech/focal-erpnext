@@ -52,14 +52,14 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 				}, "icon-download", "btn-default");
 		}
 
-		if (!doc.__islocal) {
+		/*if (!doc.__islocal) {
 			cur_frm.communication_view = new frappe.views.CommunicationList({
 				list: frappe.get_list("Communication", {"parent": doc.name, "parenttype": "Quotation"}),
 				parent: cur_frm.fields_dict.communication_html.wrapper,
 				doc: doc,
 				recipients: doc.contact_email
 			});
-		}
+		}*/
 		if (!doc.__islocal && doc.docstatus!=1){
 			cur_frm.add_custom_button(__('Create RFQ for Material'), cur_frm.cscript.rfq_material, "icon-mobile-phone");
 			cur_frm.add_custom_button(__('Create RFQ for PP'), cur_frm.cscript.rfq_pp, "icon-mobile-phone");
@@ -68,6 +68,12 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		} 
 
 		this.toggle_reqd_lead_customer();
+		if (!doc.__islocal && doc.docstatus!=1){
+			this.frm.script_manager.trigger("refresh_rm",cur_frm.cscript.tname, cur_frm.cscript.fname);
+			this.frm.script_manager.trigger("refresh_pp",cur_frm.cscript.tname, cur_frm.cscript.fname);
+			this.frm.script_manager.trigger("refresh_sm",cur_frm.cscript.tname, cur_frm.cscript.fname);
+			this.frm.script_manager.trigger("refresh_sp",cur_frm.cscript.tname, cur_frm.cscript.fname);
+		}
 	},
 
 	quotation_to: function() {
@@ -316,7 +322,7 @@ cur_frm.cscript.rfq_sm = function() {
 cur_frm.cscript.raw_material_costing=function(doc,cdt,cdn){
 	var d = locals[cdt][cdn]
 	if (d.raw_material_costing){
-	return $c_obj(doc, 'get_rm_total_price', d.idx, function(r, rt) {
+	return $c_obj(doc, 'refresh_rm_total_price', d.idx, function(r, rt) {
 			refresh_field(['quotation_details','amount','net_total_export']);
 		});
 	}
@@ -325,7 +331,7 @@ cur_frm.cscript.raw_material_costing=function(doc,cdt,cdn){
 cur_frm.cscript.primary_process_costing=function(doc,cdt,cdn){
 	var d = locals[cdt][cdn]
 	if (d.primary_process_costing){
-	return $c_obj(doc, 'get_pp_total_price', d.idx, function(r, rt) {
+	return $c_obj(doc, 'refresh_pp_total_price', d.idx, function(r, rt) {
 			refresh_field(['quotation_details','amount','net_total_export']);
 		});
 	}
@@ -334,7 +340,7 @@ cur_frm.cscript.primary_process_costing=function(doc,cdt,cdn){
 cur_frm.cscript.sub_machining_costing=function(doc,cdt,cdn){
 	var d = locals[cdt][cdn]
 	if (d.sub_machining_costing){
-	return $c_obj(doc, 'get_sm_total_price', d.idx, function(r, rt) {
+	return $c_obj(doc, 'refresh_sm_total_price', d.idx, function(r, rt) {
 			refresh_field(['quotation_details','amount','net_total_export']);
 		});
 	}
@@ -343,7 +349,7 @@ cur_frm.cscript.sub_machining_costing=function(doc,cdt,cdn){
 cur_frm.cscript.secondary_process_costing=function(doc,cdt,cdn){
 	var d = locals[cdt][cdn]
 	if (d.secondary_process_costing){
-	return $c_obj(doc, 'get_sp_total_price', d.idx, function(r, rt) {
+	return $c_obj(doc, 'refresh_sp_total_price', d.idx, function(r, rt) {
 			refresh_field(['quotation_details','amount','net_total_export']);
 		});
 	}
@@ -362,3 +368,40 @@ cur_frm.cscript.quantity=function(doc,cdt,cdn){
 	refresh_field(['rate','quotation_details','amount','net_total_export'])
 }
 
+cur_frm.cscript.refresh_rm=function(doc,cdt,cdn){
+	$.each(doc.quotation_details,function(i,d){
+		if (d.raw_material_costing){
+			return $c_obj(doc, 'get_rm_total_price', d.idx, function(r, rt) {
+			refresh_field(['quotation_details','amount','net_total_export']);
+		});
+		}
+	})
+	
+}
+cur_frm.cscript.refresh_pp=function(doc,cdt,cdn){
+	$.each(doc.quotation_details,function(i,d){
+		if (d.primary_process_costing){
+			return $c_obj(doc, 'get_pp_total_price', d.idx, function(r, rt) {
+			refresh_field(['quotation_details','amount','net_total_export']);
+		});
+		}
+	})
+}
+cur_frm.cscript.refresh_sm=function(doc,cdt,cdn){
+	$.each(doc.quotation_details,function(i,d){
+		if (d.sub_machining_costing){
+			return $c_obj(doc, 'get_sm_total_price', d.idx, function(r, rt) {
+			refresh_field(['quotation_details','amount','net_total_export']);
+		});
+		}
+	})
+}
+cur_frm.cscript.refresh_sp=function(doc,cdt,cdn){
+	$.each(doc.quotation_details,function(i,d){
+		if (d.secondary_process_costing){
+			return $c_obj(doc, 'get_sp_total_price', d.idx, function(r, rt) {
+			refresh_field(['quotation_details','amount','net_total_export']);
+			});
+		}
+	})
+}

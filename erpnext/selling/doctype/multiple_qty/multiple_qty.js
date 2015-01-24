@@ -9,6 +9,7 @@ cur_frm.cscript.sales_team_fname = "sales_team";
 {% include 'utilities/doctype/sms_control/sms_control.js' %}
 {% include 'accounts/doctype/sales_invoice/pos.js' %}
 
+cur_frm.add_fetch('item_code', 'part_number', 'part_number');
 
 erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	onload: function(doc, dt, dn) {
@@ -115,12 +116,16 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		var field_label_map = {};
 		label_fields_c=me.frm.doc.quantity_lable
 		label_fields_t=me.frm.doc.qty_label
-		if (label_fields_c || label_fields_t){
+		label_fields_t1=me.frm.doc.t_label
+		if (label_fields_c || label_fields_t || label_fields_t1){
 			if (label_fields_c){
 				label_dict_c=JSON.parse(label_fields_c)
 			}
 			if (label_fields_t){
 				label_dict_t=JSON.parse(label_fields_t)	
+			}
+			if (label_fields_t1){
+				label_dict_t1=JSON.parse(label_fields_t1)	
 			}
 			var setup_field_label_map_c = function(fields_list,parentfield) {
 				var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
@@ -148,8 +153,22 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 					}
 					});
 			}
+			var setup_field_label_map_t1 = function(fields_list,parentfield) {
+				var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
+					$.each(fields_list, function(i, fname) {
+					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
+					if(docfield) {
+						if (label_dict_t1){
+							var label = docfield.label='Qty '+label_dict_t1[fname]
+							field_label_map[grid_doctype + "-" + fname] =
+							label.trim();
+						}
+					}
+					});
+			}
 			setup_field_label_map_c(["qty1", "qty2","qty3","qty4","qty5"],this.fname);
 			setup_field_label_map_t(["qty6", "qty7","qty8","qty9","qty10"],this.fname);
+			setup_field_label_map_t1(["qty11", "qty12","qty13","qty14","qty15"],this.fname);
 			$.each(field_label_map, function(fname, label) {
 				fname = fname.split("-");
 				var df = frappe.meta.get_docfield(fname[0], fname[1], me.frm.doc.name);

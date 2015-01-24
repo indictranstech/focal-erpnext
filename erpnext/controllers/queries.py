@@ -161,6 +161,8 @@ def item_query(doctype, txt, searchfield, start, page_len, filters):
 	return frappe.db.sql("""select tabItem.name,
 		if(length(tabItem.item_name) > 40,
 			concat(substr(tabItem.item_name, 1, 40), "..."), item_name) as item_name,
+		if(length(tabItem.part_number) > 40,
+			concat(substr(tabItem.part_number, 1, 40), "..."), part_number) as part_number,
 		if(length(tabItem.description) > 40, \
 			concat(substr(tabItem.description, 1, 40), "..."), description) as decription
 		from tabItem
@@ -168,6 +170,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters):
 			and (tabItem.end_of_life > %(today)s or ifnull(tabItem.end_of_life, '0000-00-00')='0000-00-00')
 			and (tabItem.`{key}` LIKE %(txt)s
 				or tabItem.item_name LIKE %(txt)s
+				or tabItem.part_number LIKE %(txt)s
 				or tabItem.description LIKE %(txt)s)
 			{fcond} {mcond}
 		order by

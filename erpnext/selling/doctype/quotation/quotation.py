@@ -25,7 +25,9 @@ class Quotation(SellingController):
 		self.validate_uom_is_integer("stock_uom", "qty")
 		self.validate_quotation_to()
 		self.update_costings()#update names of quotation anand
+		# self.cust_ref_no()
 
+		
 	def has_sales_order(self):
 		return frappe.db.get_value("Sales Order Item", {"prevdoc_docname": self.name, "docstatus": 1})
 

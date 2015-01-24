@@ -57,8 +57,10 @@ class MultipleQty(Document):
 
 	def set_label(self):
 		label1=['qty6','qty7','qty8','qty9','qty10']
+		label2=['qty11','qty12','qty13','qty14','qty15']
 		label_dict={}
 		label1_dict={}
+		label2_dict={}
 		labels=''
 		i=0
 		args=frappe.db.sql("select field,value from `tabSingles` where doctype='Range Master' and field in('qty1','qty2','qty3','qty4','qty5')",as_list=1)
@@ -66,9 +68,11 @@ class MultipleQty(Document):
 			if args[s][1]:
 				label_dict.setdefault(args[s][0],args[s][1])
 				label1_dict.setdefault(label1[i],args[s][1])
+				label2_dict.setdefault(label2[i],args[s][1])
 			i+=1	
 		self.quantity_lable=json.dumps(label_dict)
 		self.qty_label=json.dumps(label1_dict)
+		self.t_label=json.dumps(label2_dict)
 		self.q1=label_dict['qty1']
 		self.q2=label_dict['qty2']
 		self.q3=label_dict['qty3']

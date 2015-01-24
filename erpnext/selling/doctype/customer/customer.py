@@ -6,7 +6,7 @@ import frappe
 from frappe.model.naming import make_autoname
 from frappe import msgprint, _
 import frappe.defaults
-
+from frappe.utils import cstr,cint
 
 from erpnext.utilities.transaction_base import TransactionBase
 from erpnext.accounts.party import create_party_account
@@ -35,7 +35,15 @@ class Customer(TransactionBase):
 
 	def validate(self):
 		self.validate_values()
+		self.cust_ref_no()
 
+	def cust_ref_no(self):
+		cust_count=frappe.db.sql("select count from `tabCustomer` order by creation DESC",as_list=1)
+		if self.flag=='fst' and cust_count:
+			self.ref_no = 'C' + ' - ' + cust_count[0][0]
+			self.flag='snd'
+			self.count=cint(cust_count[0][0]) + cint(1)
+			
 	def update_lead_status(self):
 		if self.lead_name:
 			frappe.db.sql("update `tabLead` set status='Converted' where name = %s", self.lead_name)

@@ -9,6 +9,7 @@ cur_frm.cscript.sales_team_fname = "sales_team";
 {% include 'utilities/doctype/sms_control/sms_control.js' %}
 {% include 'accounts/doctype/sales_invoice/pos.js' %}
 
+cur_frm.add_fetch('item_code', 'part_number', 'part_number');
 
 erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	onload: function(doc, dt, dn) {
@@ -16,7 +17,7 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		this._super(doc, dt, dn);
 		if(doc.__islocal){
 			get_server_fields('set_label','','',doc,dt,dn,1,function(r){refresh_field('multiple_quantity_item');
-			 refresh_field(['quantity_lable','qty_label','rq1','rq2','rq3']);
+			 refresh_field(['quantity_lable','qty_label','t_lable','rq1','rq2','rq3']);
 			 me.change_grid_labels()
 			})
 		}
@@ -117,12 +118,17 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		var field_label_map = {};
 		label_fields_c=me.frm.doc.quantity_lable
 		label_fields_t=me.frm.doc.qty_label
-		if (label_fields_c || label_fields_t){
+		label_fields_t1=me.frm.doc.t_lable
+		// label_fields_t1=1
+		if (label_fields_c || label_fields_t || label_fields_t1){
 			if (label_fields_c){
 				label_dict_c=JSON.parse(label_fields_c)
 			}
 			if (label_fields_t){
 				label_dict_t=JSON.parse(label_fields_t)	
+			}
+			if (label_fields_t1){
+				label_dict_t1=JSON.parse(label_fields_t1)	
 			}
 			var setup_field_label_map_c = function(fields_list,parentfield) {
 			var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
@@ -150,8 +156,22 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 					}
 				});
 			}
+			var setup_field_label_map_t1 = function(fields_list,parentfield) {
+			var grid_doctype = me.frm.fields_dict[parentfield].grid.doctype;
+				$.each(fields_list, function(i, fname) {
+					var docfield = frappe.meta.docfield_map[grid_doctype][fname];
+					if(docfield) {
+						if (label_dict_t1){
+							var label = docfield.label='Qty '+label_dict_t1[fname]
+							field_label_map[grid_doctype + "-" + fname] =
+							label.trim();
+						}
+					}
+				});
+			}
 			setup_field_label_map_c(["r_qty1", "r_qty2", "r_qty3"],this.fname);
 			setup_field_label_map_t(["r_qty_4", "r_qty_5", "r_qty_6"],this.fname);
+			setup_field_label_map_t1(["r_qty_7", "r_qty_8", "r_qty_9"],this.fname);
 			$.each(field_label_map, function(fname, label) {
 				fname = fname.split("-");
 				var df = frappe.meta.get_docfield(fname[0], fname[1], me.frm.doc.name);

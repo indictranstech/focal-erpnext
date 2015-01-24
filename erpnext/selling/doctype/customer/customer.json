@@ -108,6 +108,32 @@
    "reqd": 1
   }, 
   {
+   "fieldname": "ref_no", 
+   "fieldtype": "Data", 
+   "label": "Customer Ref No.", 
+   "permlevel": 0, 
+   "precision": "", 
+   "read_only": 1
+  }, 
+  {
+   "default": "1", 
+   "fieldname": "count", 
+   "fieldtype": "Data", 
+   "label": "count", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
+   "default": "fst", 
+   "fieldname": "flag", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "flag", 
+   "permlevel": 0, 
+   "precision": "", 
+   "read_only": 0
+  }, 
+  {
    "depends_on": "eval:!doc.__islocal", 
    "fieldname": "address_contacts", 
    "fieldtype": "Section Break", 
@@ -289,7 +315,7 @@
  ], 
  "icon": "icon-user", 
  "idx": 1, 
- "modified": "2014-10-04 12:02:14.631936", 
+ "modified": "2015-01-24 12:56:00.238846", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Customer", 

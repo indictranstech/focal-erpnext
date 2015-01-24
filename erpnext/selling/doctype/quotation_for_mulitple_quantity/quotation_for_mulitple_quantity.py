@@ -37,8 +37,10 @@ class QuotationforMulitpleQuantity(Document):
 	def set_label(self):
 		label=['r_qty1','r_qty2','r_qty3']
 		label1=['r_qty_4','r_qty_5','r_qty_6']
+		label2=['r_qty_7','r_qty_8','r_qty_9']
 		label_dict={}
 		label1_dict={}
+		label2_dict={}
 		i=0	
 		qty_data=frappe.db.sql("select from_quantity, to_quantity from `tabQuantity Range` where parent='Range Master' order by idx",as_dict=1)
 		if qty_data:
@@ -46,12 +48,15 @@ class QuotationforMulitpleQuantity(Document):
 				if qty['to_quantity']:
 					label_dict.setdefault(label[i],cstr(qty['from_quantity'])+'-'+cstr(qty['to_quantity']))
 					label1_dict.setdefault(label1[i],cstr(qty['from_quantity'])+'-'+cstr(qty['to_quantity']))
+					label2_dict.setdefault(label2[i],cstr(qty['from_quantity'])+'-'+cstr(qty['to_quantity']))
 				else:
 					label_dict.setdefault(label[i],'>'+cstr(qty['from_quantity']))
 					label1_dict.setdefault(label1[i],'>'+cstr(qty['from_quantity']))
+					label2_dict.setdefault(label2[i],'>'+cstr(qty['from_quantity']))
 				i=i+1
 			self.quantity_lable=json.dumps(label_dict)
 			self.qty_label=json.dumps(label1_dict)
+			self.t_lable=json.dumps(label2_dict)
 			self.rq1='Quantity '+label_dict.get('r_qty1')
 			self.rq2='Quantity '+label_dict.get('r_qty2')
 			self.rq3='Quantity '+label_dict.get('r_qty3')

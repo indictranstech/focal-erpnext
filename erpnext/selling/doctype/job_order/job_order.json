@@ -88,7 +88,7 @@
   {
    "fieldname": "qty", 
    "fieldtype": "Data", 
-   "label": "quantity", 
+   "label": "Quantity", 
    "permlevel": 0, 
    "precision": ""
   }, 
@@ -348,7 +348,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-01-23 13:12:18.326845", 
+ "modified": "2015-01-27 15:26:38.949401", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Job Order", 

@@ -57,6 +57,15 @@ class Supplier(TransactionBase):
 			if not self.naming_series:
 				msgprint(_("Series is mandatory"), raise_exception=1)
 
+		self.supplier_ref_no()
+
+	def supplier_ref_no(self):
+		sup_count=frappe.db.sql("select count from `tabSupplier` order by creation DESC",as_list=1)
+		if self.flag=='fst' and sup_count:
+			self.ref_no = 'S' + ' - ' + sup_count[0][0]
+			self.flag='snd'
+			self.count=cint(sup_count[0][0]) + cint(1)
+
 	def get_contacts(self,nm):
 		if nm:
 			contact_details =frappe.db.convert_to_lists(frappe.db.sql("select name, CONCAT(IFNULL(first_name,''),' ',IFNULL(last_name,'')),contact_no,email_id from `tabContact` where supplier = %s", nm))

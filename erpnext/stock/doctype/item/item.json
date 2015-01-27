@@ -659,7 +659,7 @@
    "read_only": 0
   }, 
   {
-   "default": "No", 
+   "default": "Yes", 
    "description": "Selecting \"Yes\" will allow you to create Bill of Material showing raw material and operational costs incurred to manufacture this item.", 
    "fieldname": "is_manufactured_item", 
    "fieldtype": "Select", 
@@ -685,7 +685,7 @@
    "read_only": 1
   }, 
   {
-   "default": "No", 
+   "default": "Yes", 
    "depends_on": "eval:doc.is_manufactured_item==\"Yes\"", 
    "description": "Selecting \"Yes\" will allow you to make a Production Order for this item.", 
    "fieldname": "is_pro_applicable", 
@@ -849,7 +849,7 @@
  "icon": "icon-tag", 
  "idx": 1, 
  "max_attachments": 1, 
- "modified": "2014-10-30 11:12:59.302838", 
+ "modified": "2015-01-27 13:49:40.097262", 
  "modified_by": "Administrator", 
  "module": "Stock", 
  "name": "Item", 

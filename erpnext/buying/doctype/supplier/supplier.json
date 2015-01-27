@@ -38,6 +38,14 @@
    "reqd": 1
   }, 
   {
+   "fieldname": "ref_no", 
+   "fieldtype": "Data", 
+   "label": "Supplier Ref No", 
+   "permlevel": 0, 
+   "precision": "", 
+   "read_only": 1
+  }, 
+  {
    "fieldname": "column_break0", 
    "fieldtype": "Column Break", 
    "permlevel": 0, 
@@ -46,13 +54,40 @@
   {
    "fieldname": "supplier_type", 
    "fieldtype": "Link", 
+   "hidden": 1, 
    "in_list_view": 1, 
    "label": "Supplier Type", 
    "oldfieldname": "supplier_type", 
    "oldfieldtype": "Link", 
    "options": "Supplier Type", 
    "permlevel": 0, 
-   "reqd": 1
+   "reqd": 0
+  }, 
+  {
+   "fieldname": "type", 
+   "fieldtype": "Select", 
+   "label": "Supplier Type", 
+   "options": "\nPurchasing for Row Material\nPrimary Process\nSecondary Process\nSub-Machining", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
+   "default": "1", 
+   "fieldname": "count", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "count", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
+   "default": "fst", 
+   "fieldname": "flag", 
+   "fieldtype": "Data", 
+   "hidden": 1, 
+   "label": "flag", 
+   "permlevel": 0, 
+   "precision": ""
   }, 
   {
    "depends_on": "eval:!doc.__islocal", 
@@ -186,7 +221,7 @@
  ], 
  "icon": "icon-user", 
  "idx": 1, 
- "modified": "2014-11-07 19:38:43.795017", 
+ "modified": "2015-01-27 11:21:26.277486", 
  "modified_by": "Administrator", 
  "module": "Buying", 
  "name": "Supplier", 

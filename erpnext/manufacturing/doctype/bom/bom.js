@@ -81,8 +81,8 @@ cur_frm.cscript.hour_rate = function(doc, dt, dn) {
 	erpnext.bom.calculate_total(doc);
 }
 
-
-cur_frm.cscript.time_in_mins = cur_frm.cscript.hour_rate;
+// cur_frm.cscript.time_in_mins = cur_frm.cscript.hour_rate;
+cur_frm.cscript.set_up_time = cur_frm.cscript.load_up_time=cur_frm.cscript.time_in_mins=cur_frm.cscript.tip_change_time=cur_frm.cscript.inspection_time=cur_frm.cscript.hour_rate;
 
 cur_frm.cscript.item_code = function(doc, cdt, cdn) {
 	get_bom_material_detail(doc, cdt, cdn);
@@ -140,7 +140,8 @@ erpnext.bom.calculate_op_cost = function(doc) {
 	var op = doc.bom_operations || [];
 	total_op_cost = 0;
 	for(var i=0;i<op.length;i++) {
-		op_cost =	flt(flt(op[i].hour_rate) * flt(op[i].time_in_mins) / 60, 2);
+		// op_cost =	flt(flt(op[i].hour_rate) * flt(op[i].time_in_mins) / 60, 2);
+		 op_cost =(flt(op[i].set_up_time)+flt(op[i].time_in_mins)+flt(op[i].load_up_time)+flt(op[i].tip_change_time)+flt(op[i].inspection_time)) * (flt(op[i].hour_rate))
 		set_multiple('BOM Operation',op[i].name, {'operating_cost': op_cost}, 'bom_operations');
 		total_op_cost += op_cost;
 	}

@@ -287,8 +287,9 @@ class BOM(Document):
 
 				fixed_cost += flt(w[1])
 
-			if d.hour_rate and d.time_in_mins:
-				d.operating_cost = flt(d.hour_rate) * flt(d.time_in_mins) / 60.0
+			# if d.hour_rate and d.time_in_mins:
+				# d.operating_cost = flt(d.hour_rate) * flt(d.time_in_mins) / 60.0
+			d.operating_cost=(flt(d.set_up_time)+flt(d.time_in_mins)+flt(d.load_up_time)+flt(d.tip_change_time)+flt(d.inspection_time)) * (flt(d.hour_rate))
 			total_op_cost += flt(d.operating_cost)
 
 		self.operating_cost = total_op_cost

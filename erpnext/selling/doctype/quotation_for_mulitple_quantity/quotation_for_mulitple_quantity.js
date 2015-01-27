@@ -10,6 +10,7 @@ cur_frm.cscript.sales_team_fname = "sales_team";
 {% include 'accounts/doctype/sales_invoice/pos.js' %}
 
 cur_frm.add_fetch('item_code', 'part_number', 'part_number');
+//cur_frm.add_fetch('item_code', 'item_name', 'item_name');
 
 erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	onload: function(doc, dt, dn) {

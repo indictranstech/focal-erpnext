@@ -122,6 +122,17 @@ cur_frm.fields_dict['production_item'].get_query = function(doc) {
 		msgprint("Sales Order field can not be blank")
 }
 
+cur_frm.fields_dict['job_order'].get_query = function(doc) {
+
+	if(doc.sales_order)
+
+		return "select name from `tabJob Order` where sales_order='"+doc.sales_order+"' and drawing_no in (select item_code from `tabSales Order Item` where parent='"+doc.sales_order+"')"
+		// return "select item_code from `tabItem` where is_pro_applicable='Yes' and item_code in (select item_code from `tabSales Order Item` where parent='"+doc.sales_order+"')"
+
+	else
+		msgprint("Sales Order field can not be blank")
+}
+
 cur_frm.fields_dict['project_name'].get_query = function(doc, dt, dn) {
 	return{
 		filters:[

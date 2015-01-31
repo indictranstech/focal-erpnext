@@ -211,7 +211,6 @@
    "options": "currency", 
    "permlevel": 0, 
    "precision": ""
-   "read_only": 0
   }, 
   {
    "fieldname": "col_break3", 

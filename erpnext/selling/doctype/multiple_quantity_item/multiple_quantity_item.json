@@ -71,28 +71,28 @@
   {
    "fieldname": "q_and_r", 
    "fieldtype": "Section Break", 
-   "label": "Quantity and Rate", 
+   "label": "Machining Cost", 
    "permlevel": 0
   }, 
   {
    "fieldname": "r_qty1", 
    "fieldtype": "Currency", 
    "in_list_view": 1, 
-   "label": "Qty 19-25", 
+   "label": "Qty 1-10", 
    "permlevel": 0
   }, 
   {
    "fieldname": "r_qty2", 
    "fieldtype": "Currency", 
    "in_list_view": 1, 
-   "label": "Qty 26-30", 
+   "label": "Qty 11-14", 
    "permlevel": 0
   }, 
   {
    "fieldname": "r_qty3", 
    "fieldtype": "Currency", 
    "in_list_view": 1, 
-   "label": "Qty >31", 
+   "label": "Qty >15", 
    "permlevel": 0
   }, 
   {
@@ -357,7 +357,7 @@
   }
  ], 
  "istable": 1, 
- "modified": "2014-10-30 16:54:25.539373", 
+ "modified": "2015-01-29 16:36:46.202866", 
  "modified_by": "Administrator", 
  "module": "Selling", 
  "name": "Multiple Quantity Item", 

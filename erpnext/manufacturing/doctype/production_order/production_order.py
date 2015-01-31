@@ -176,6 +176,10 @@ class ProductionOrder(Document):
 				frappe.db.sql("update `tabJob Order` set late_delivery=' ' where name='%s'"%(self.job_order))
 				frappe.db.commit()
 
+		if self.job_order:
+			frappe.db.sql("update `tabJob Order` set po_against_jo='Production Order Created' where name='%s'"%(self.job_order))
+			frappe.db.commit()
+
 
 	def bom_operations(self):
 		bom = frappe.db.sql("""select name from `tabBOM` where item=%s

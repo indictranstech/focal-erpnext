@@ -215,6 +215,8 @@ class QuotationforMulitpleQuantity(Document):
 		rfqc=rfq.append(args['rfq_child'],{})
 		rfqc.quotation_no=self.name
 		rfqc.mat_spec__type=d.spec
+		rfqc.drawing_no=d.item_code
+		rfqc.part_no=d.item_name
 		if args['rfq_doctype']=='Material RFQ':
 			rfqc.mat_spec_type=d.spec
 			rfqc.od=cstr(c.od)+' '+cstr(c.od_uom)

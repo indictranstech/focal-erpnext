@@ -230,15 +230,22 @@ class Quotation(SellingController):
 
 
 	def get_rfq(self,args):
+		# frappe.errprint("in the get_rfq")
+		# frappe.errprint(args)
 		for d in self.get('quotation_details'):
 			cost_docname=args["parent_cost"]
 			cost_child=args["child_docname"]
 			field_name=d.get(args["field_name"])
 			rfqs=[]
 			if field_name:
+				# frappe.errprint("in the if")
 				cost=frappe.get_doc(cost_docname,field_name).get(cost_child)
+				# frappe.errprint(cost.quote_ref)
 				for c in cost:
+					# frappe.errprint(c.quote_ref)
 					if c.quote_ref:
+						# frappe.errprint("in the if")
+						# frappe.errprint(c.pp_spec_type)
 						self.update_rfq_with_quotattion_values(c,args,d)
 						rfqs.append(c.quote_ref)
 		return rfqs
@@ -250,6 +257,7 @@ class Quotation(SellingController):
 		rfqc.part_no=d.part_number
 		rfqc.drawing_no=d.item_code
 		rfqc.mat_spec__type=d.spec
+
 		if args['rfq_doctype']=='Material RFQ':
 			rfqc.mat_spec_type=d.spec
 			rfqc.od=cstr(c.od)+' '+cstr(c.od_uom)
@@ -257,17 +265,25 @@ class Quotation(SellingController):
 			rfqc.lg=cstr(c.lg)+' '+cstr(c.lg_uom)
 		elif args['rfq_doctype']=='Primary Process RFQ':
 			rfqc.primary_process=c.spec
+			rfqc.pp_spec_type=cstr(c.spec)+' '+cstr(c.type)
 		elif args['rfq_doctype']=='Secondary Process RFQ':
 			rfqc.secondary_process=c.spec
+			rfqc.sp_spec_type=cstr(c.spec)+' '+cstr(c.type)
 		elif args['rfq_doctype']=='Sub Machining RFQ':
 			rfqc.sub_machining=c.type
+			rfqc.sm_type=cstr(c.type)
 		rfq.save(ignore_permissions=True)
 		return "done"
 #roshan
 @frappe.whitelist()
+def get_customer_refno(customer):
+	return frappe.db.sql( """select ref_no from `tabCustomer`
+	 where name='%s'"""%(customer),debug=1)
+
+@frappe.whitelist()
 def raw_material_costing_query(doctype,txt,searchfield,start,page_len,filters):
 	return frappe.db.sql( """select name from `tabRaw Material Cost Sheet`
-	 order by creation desc limit 1""" )
+	 order by creation desc limit 1""" )	
 
 @frappe.whitelist()
 def primary_process_costing_query(doctype,txt,searchfield,start,page_len,filters):

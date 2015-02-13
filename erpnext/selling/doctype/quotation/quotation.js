@@ -82,12 +82,14 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 			this.frm.set_value("contact_person", null);
 		} else if (this.frm.doc.quotation_to == "Customer") {
 			this.frm.set_value("lead", null);
+
 		}
 
 		this.toggle_reqd_lead_customer();
 	},
 
 	toggle_reqd_lead_customer: function() {
+
 		var me = this;
 
 		this.frm.toggle_reqd("lead", this.frm.doc.quotation_to == "Lead");
@@ -129,6 +131,19 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 					me.frm.refresh();
 					me.frm.updating_party_details = false;
 
+				}
+			}
+		})
+	},
+	customer: function() {
+		var me = this;
+		frappe.call({
+			method: "erpnext.selling.doctype.quotation.quotation.get_customer_refno",
+			args: { "customer": this.frm.doc.customer },
+			callback: function(r) {
+				if(r.message) {
+					me.frm.set_value("customer_ref_no", r.message[0][0]);
+					refresh_field('customer_ref_no');
 				}
 			}
 		})

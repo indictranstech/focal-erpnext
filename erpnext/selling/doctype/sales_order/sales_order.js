@@ -161,7 +161,20 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 			method: "erpnext.selling.doctype.sales_order.sales_order.make_maintenance_visit",
 			frm: cur_frm
 		})
-	}
+	},
+	customer: function() {
+		var me = this;
+		frappe.call({
+			method: "erpnext.selling.doctype.quotation.quotation.get_customer_refno",
+			args: { "customer": this.frm.doc.customer },
+			callback: function(r) {
+				if(r.message) {
+					me.frm.set_value("customer_ref_no", r.message[0][0])
+					refresh_field('customer_ref_no');
+				}
+			}
+		})
+	},
 	
 });
 

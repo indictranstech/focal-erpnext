@@ -105,6 +105,20 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 			}
 		})
 	},
+	customer: function() {
+		var me = this;
+		frappe.call({
+			method: "erpnext.selling.doctype.quotation.quotation.get_customer_refno",
+			args: { "customer": this.frm.doc.customer },
+			callback: function(r) {
+				if(r.message) {
+					me.frm.set_value("customer_ref_no", r.message[0][0])
+					refresh_field('customer_ref_no');
+				}
+			}
+		})
+	},
+
 	item_code:function(doc,cdt,cdn){
 		var row = frappe.get_doc(cdt, cdn);
 		get_server_fields('get_item_details',row.item_code,'',doc,cdt,cdn,1,function(r){

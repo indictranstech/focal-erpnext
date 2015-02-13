@@ -173,6 +173,21 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 				price_list: this.frm.doc.selling_price_list,
 			}, function() {
 			me.apply_pricing_rule();
+			me.customer_ref_no();
+		})
+	},
+	customer_ref_no: function() {
+		var me = this;
+		frappe.call({
+			method: "erpnext.selling.doctype.quotation.quotation.get_customer_refno",
+			args: { "customer": this.frm.doc.customer },
+			callback: function(r) {
+				console.log(r.message)
+				if(r.message) {
+					me.frm.set_value("customer_ref_no", r.message[0][0])
+					refresh_field('customer_ref_no');
+				}
+			}
 		})
 	},
 

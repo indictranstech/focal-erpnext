@@ -305,4 +305,45 @@ def get_data():
 				},
 			]
 		},
+		{
+			"label": _("Masters"),
+			"icon": "icon-star",
+			"items": [
+				{
+					"type": "doctype",
+					"name": "RMC Spec",
+					"description": _("RMC Spec."),
+				},
+				{
+					"type": "doctype",
+					"name": "RMC Type",
+					"description": _("RMC Type."),
+				},
+				{
+					"type": "doctype",
+					"name": "RPP Spec",
+					"description": _("RPP Spec."),
+				},
+				{
+					"type": "doctype",
+					"name": "RPP Type",
+					"description": _("RPP Type."),
+				},
+				{
+					"type": "doctype",
+					"name": "RPC Spec",
+					"description": _("RPC Spec."),
+				},
+				{
+					"type": "doctype",
+					"name": "RPC Type",
+					"description": _("RPC Type."),
+				},
+				{
+					"type": "doctype",
+					"name": "RSM Type",
+					"description": _("RSM Type."),
+				}
+				]
+				}
 	]

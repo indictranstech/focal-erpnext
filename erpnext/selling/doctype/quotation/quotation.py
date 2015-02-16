@@ -256,22 +256,22 @@ def get_customer_refno(customer):
 @frappe.whitelist()
 def raw_material_costing_query(doctype,txt,searchfield,start,page_len,filters):
 	return frappe.db.sql( """select name from `tabRaw Material Cost Sheet`
-	 order by creation desc limit 1""" )	
+	 order by creation desc""" )	
 
 @frappe.whitelist()
 def primary_process_costing_query(doctype,txt,searchfield,start,page_len,filters):
 	return frappe.db.sql( """select name from `tabPrimary Process Costing`
-	 order by creation desc limit 1""" )
+	 order by creation desc""" )
 
 @frappe.whitelist()
 def secondary_process_costing_query(doctype,txt,searchfield,start,page_len,filters):
 	return frappe.db.sql( """select name from `tabSecondary Process Costing`
-	 order by creation desc limit 1""" )
+	 order by creation desc""" )
 
 @frappe.whitelist()
 def sub_machining_costing_query(doctype,txt,searchfield,start,page_len,filters):
 	return frappe.db.sql( """select name from `tabSub Machining Costing`
-	 order by creation desc limit 1""" )
+	 order by creation desc""" )
 
 
 @frappe.whitelist()	

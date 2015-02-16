@@ -244,6 +244,7 @@ cur_frm.cscript.on_submit = function(doc, cdt, cdn) {
 
 cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("raw_material_costing").get_query = function(doc) {
 	return {
+		query:"erpnext.selling.doctype.quotation.quotation.raw_material_costing_query",
 		filters: {
 			'from_quotation': doc.name
 		}
@@ -251,6 +252,7 @@ cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("raw_material_costi
 }
 cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("primary_process_costing").get_query = function(doc) {
 	return {
+		query:"erpnext.selling.doctype.quotation.quotation.primary_process_costing_query",
 		filters: {
 			'from_quotation': doc.name
 		}
@@ -258,6 +260,7 @@ cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("primary_process_co
 }
 cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("secondary_process_costing").get_query = function(doc) {
 	return {
+		query:"erpnext.selling.doctype.quotation.quotation.secondary_process_costing_query",
 		filters: {
 			'from_quotation': doc.name
 		}
@@ -265,6 +268,7 @@ cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("secondary_process_
 }
 cur_frm.fields_dict["multiple_quantity_item"].grid.get_field("sub_machining_costing").get_query = function(doc) {
 	return {
+		query:"erpnext.selling.doctype.quotation.quotation.sub_machining_costing_query",
 		filters: {
 			'from_quotation': doc.name
 		}

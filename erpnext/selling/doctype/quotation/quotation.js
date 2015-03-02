@@ -163,6 +163,8 @@ cur_frm.cscript['Make Sales Order'] = function() {
 	})
 }
 
+
+
 cur_frm.cscript['Declare Order Lost'] = function(){
 	var dialog = new frappe.ui.Dialog({
 		title: "Set as Lost",
@@ -194,6 +196,11 @@ cur_frm.cscript['Declare Order Lost'] = function(){
 	dialog.show();
 
 }
+
+
+
+
+
 cur_frm.cscript.refresh_rm=function(doc,cdt,cdn){
 	$.each(doc.quotation_details,function(i,d){
 		if (d.raw_material_costing){
@@ -231,6 +238,8 @@ cur_frm.cscript.refresh_sp=function(doc,cdt,cdn){
 		}
 	})
 }
+
+
 /*cur_frm.cscript.refresh_total=function(doc,cdt,cdn){
 	$.each(doc.quotation_details,function(i,d){
 		console.log(d)
@@ -444,6 +453,25 @@ cur_frm.cscript.quantity=function(doc,cdt,cdn){
 	var d = locals[cdt][cdn]
 	d.qty=d.quantity
 	refresh_field(['rate','quotation_details','amount','net_total_export'])
+
+
+	frappe.call({
+	method:"erpnext.selling.custom_methods.get_stock_uom",
+	args:{'quantity':d.quantity,'item_code':d.item_code},
+	callback:function(r){
+		if(r.message){
+		d.stock_uom=r.message
+		refresh_field('quotation_details')
+         refresh_field('stock_uom')
+		}
+		
+	  }
+
+   })
+	
+
+
+
 }
 
 cur_frm.cscript.refresh_rm=function(doc,cdt,cdn){

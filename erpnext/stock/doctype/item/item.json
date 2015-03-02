@@ -68,7 +68,7 @@
    "reqd": 1
   }, 
   {
-   "description": "Unit of measurement of this item (e.g. Kg, Unit, No, Pair).", 
+   "description": "For 1 Item . Unit of measurement of this item (e.g. Kg, Unit, No, Pair).", 
    "fieldname": "stock_uom", 
    "fieldtype": "Link", 
    "ignore_user_permissions": 1, 
@@ -849,7 +849,7 @@
  "icon": "icon-tag", 
  "idx": 1, 
  "max_attachments": 1, 
- "modified": "2015-01-27 13:49:40.097262", 
+ "modified": "2015-03-02 11:58:09.865348", 
  "modified_by": "Administrator", 
  "module": "Stock", 
  "name": "Item", 

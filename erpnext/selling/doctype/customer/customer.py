@@ -66,7 +66,7 @@ class Customer(TransactionBase):
 			if not frappe.db.get_value("Address", {"lead": self.lead_name, "customer": self.name}):
 				frappe.db.sql("""update `tabAddress` set customer=%s, customer_name=%s where lead=%s""",
 					(self.name, self.customer_name, self.lead_name))
-
+			frappe.errprint("in contact address")	
 			lead = frappe.db.get_value("Lead", self.lead_name, ["lead_name", "email_id", "phone", "mobile_no"], as_dict=True)
 			c = frappe.new_doc('Contact')
 			c.first_name = lead.lead_name
@@ -95,6 +95,10 @@ class Customer(TransactionBase):
 		self.update_credit_days_limit()
 		#create address and contact from lead
 		self.create_lead_address_contact()
+		# self.create_address()
+
+
+
 
 	def validate_name_with_customer_group(self):
 		if frappe.db.exists("Customer Group", self.name):
@@ -182,3 +186,42 @@ def get_customer_list(doctype, txt, searchfield, start, page_len, filters):
 		name, customer_name limit %s, %s""" %
 		(", ".join(fields), searchfield, "%s", "%s", "%s", "%s", "%s", "%s"),
 		("%%%s%%" % txt, "%%%s%%" % txt, "%%%s%%" % txt, "%%%s%%" % txt, start, page_len))
+
+
+def create_address(doc,method):
+	frappe.errprint(doc.name)
+	for addr in doc.get('customer_address'):
+		if not frappe.db.exists('Address',addr.address_name):
+			frappe.errprint("in address")
+			c = frappe.new_doc('Address')
+			c.address_title = addr.address_title
+			c.address_type = addr.address_type
+			c.address_line1 = addr.address_line_1 or ''
+ 			c.address_line2 = addr.address_line_2 or ''
+			c.city = addr.city or ''
+			c.state = addr.state or ''
+			c.pincode = addr.pincode or ''
+			c.country = addr.country or  '' 
+			c.phone = addr.phone  or ''
+			c.preferred_billing_address = addr.preferred_billing_address
+			c.preferred_shipping_address = addr.preferred_shipping_address
+			c.customer = doc.name	
+			c.save()
+			addr.address_name = c.name
+			frappe.db.commit()
+		if  frappe.db.exists('Address',addr.address_name):
+			new_addr = frappe.get_doc('Address',addr.address_name)	
+			new_addr.address_title = addr.address_title
+			new_addr.address_type = addr.address_type
+			new_addr.address_line1 = addr.address_line_1 or ''
+ 			new_addr.address_line2 = addr.address_line_2 or ''
+			new_addr.city = addr.city or ''
+			new_addr.state = addr.state or ''
+			new_addr.pincode = addr.pincode or ''
+			new_addr.country = addr.country or  '' 
+			new_addr.phone = addr.phone  or ''
+			new_addr.preferred_billing_address = addr.preferred_billing_address
+			new_addr.preferred_shipping_address = addr.preferred_shipping_address
+			new_addr.save()
+			frappe.db.commit()
+

@@ -56,6 +56,10 @@ doc_events = {
 		"validate": "erpnext.hr.doctype.employee.employee.validate_employee_role",
 		"on_update": "erpnext.hr.doctype.employee.employee.update_user_permissions",
 		
+	},
+	"Customer":{
+	    "validate":"erpnext.selling.custom_methods.create_address",
+	    "on_update":"erpnext.selling.custom_methods.update_customer_name"
 	}
 }
 

@@ -43,3 +43,59 @@ def get_so_price_list(args, item_doc, out): #Rohit_sw
 		else:
 			return 0.0
 
+@frappe.whitelist()
+def get_stock_uom(quantity,item_code):
+	quantity=cint(quantity)
+	if quantity > 1 and item_code:
+		uom_for_many=frappe.db.get_value('Item',item_code,'uom_for_many')
+		if uom_for_many:
+			return uom_for_many
+		else:
+			return frappe.db.get_value('Item',item_code,'stock_uom')		
+	if quantity == 1 and item_code:
+		return frappe.db.get_value('Item',item_code,'stock_uom')
+
+
+def create_address(doc,method):
+	for addr in doc.get('customer_address'):
+		if not frappe.db.exists('Address',addr.address_name):
+			c = frappe.new_doc('Address')
+			c.address_title = addr.address_title
+			c.address_type = addr.address_type
+			c.address_line1 = addr.address_line_1 or ''
+ 			c.address_line2 = addr.address_line_2 or ''
+			c.city = addr.city or ''
+			c.state = addr.state or ''
+			c.pincode = addr.pincode or ''
+			c.country = addr.country or  '' 
+			c.phone = addr.phone  or ''
+			c.preferred_billing_address = addr.preferred_billing_address
+			c.preferred_shipping_address = addr.preferred_shipping_address	
+			c.save()
+			addr.address_name = c.name
+			frappe.db.commit()
+		if  frappe.db.exists('Address',addr.address_name):
+			new_addr = frappe.get_doc('Address',addr.address_name)	
+			new_addr.address_title = addr.address_title
+			new_addr.address_type = addr.address_type
+			new_addr.address_line1 = addr.address_line_1 or ''
+ 			new_addr.address_line2 = addr.address_line_2 or ''
+			new_addr.city = addr.city or ''
+			new_addr.state = addr.state or ''
+			new_addr.pincode = addr.pincode or ''
+			new_addr.country = addr.country or  '' 
+			new_addr.phone = addr.phone  or ''
+			new_addr.preferred_billing_address = addr.preferred_billing_address
+			new_addr.preferred_shipping_address = addr.preferred_shipping_address
+			new_addr.save()
+			frappe.db.commit()
+
+def update_customer_name(doc,method):
+	for addr in doc.get('customer_address'):
+		if addr.address_name:
+			frappe.db.sql(""" update `tabAddress` set customer='%s' where name='%s' """%(doc.name,addr.address_name))
+
+
+
+		 	
+

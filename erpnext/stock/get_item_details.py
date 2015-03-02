@@ -174,10 +174,11 @@ def get_basic_details(args, item_doc):
     
 	if args.doctype=='Sales Order Item':
 		out['qty']=args.get('qty') or 0.0  #Rohit
+    
 
 	for fieldname in ("item_name", "item_group", "barcode", "brand", "stock_uom"):
 		out[fieldname] = item.get(fieldname)
-
+    
 	return out
 
 def get_price_list_rate(args, item_doc, out):

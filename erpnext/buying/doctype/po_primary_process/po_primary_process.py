@@ -68,5 +68,7 @@ def make_purchase_order(source_name, target_doc=None):
 
 	return doclist
 
+def get_job_order(doctype, txt, searchfield, start, page_len, filters):
+	return frappe.db.sql(""" select distinct(parent) from `tabJO Primary Process Details` where parenttype='Job Order' """)
 
 

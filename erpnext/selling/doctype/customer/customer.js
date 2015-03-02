@@ -40,11 +40,23 @@ cur_frm.cscript.refresh = function(doc, dt, dn) {
 			doc: doc,
 		});
 	}
+
+	refresh_field('address_html')
 }
 
 cur_frm.cscript.validate = function(doc, dt, dn) {
 	if(doc.lead_name) frappe.model.clear_doc("Lead", doc.lead_name);
+	setTimeout(function(){
+      refresh_field('customer_address')},2000)
 }
+
+cur_frm.cscript.customer_address_remove =function(doc,dt,dn){
+}
+
+
+
+
+
 
 cur_frm.cscript.setup_dashboard = function(doc) {
 	cur_frm.dashboard.reset(doc);
@@ -84,7 +96,7 @@ cur_frm.cscript.make_address = function() {
 		cur_frm.address_list = new frappe.ui.Listing({
 			parent: cur_frm.fields_dict['address_html'].wrapper,
 			page_length: 5,
-			new_doctype: "Address",
+			new_doctype: "",
 			get_query: function() {
 				return "select name, address_type, address_line1, address_line2, city, state, country, pincode, fax, email_id, phone, is_primary_address, is_shipping_address from tabAddress where customer='" +
 					cur_frm.doc.name.replace(/'/g, "\\'") + "' and docstatus != 2 order by is_primary_address desc"

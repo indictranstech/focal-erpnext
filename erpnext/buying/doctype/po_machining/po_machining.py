@@ -28,3 +28,8 @@ class POMachining(Document):
 
 		return "done"
 
+def get_job_order(doctype, txt, searchfield, start, page_len, filters):
+	return frappe.db.sql(""" select distinct(parent) from `tabJO Machining Details` where parenttype='Job Order' """)
+
+
+

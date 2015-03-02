@@ -295,13 +295,40 @@ erpnext.TransactionController = erpnext.stock.StockController.extend({
 	},
 
 	qty: function(doc, cdt, cdn) {
+		var d = locals[cdt][cdn]
 		this.apply_pricing_rule(frappe.get_doc(cdt, cdn), true);
 		if(doc.doctype=='Sales Order')
 		{
 			this.item_code(doc,cdt,cdn)
 		}
 		this.calculate_taxes_and_totals();
+	
+	    this.get_stock_uom(doc,cdt,cdn); 
+
 	},
+
+    get_stock_uom:function(doc,cdt,cdn){
+
+        var d = locals[cdt][cdn]
+
+		frappe.call({
+		method:"erpnext.selling.custom_methods.get_stock_uom",
+		args:{'quantity':d.qty,'item_code':d.item_code},
+		callback:function(r){
+			if(r.message){
+			d.stock_uom=r.message
+			refresh_field(['delivery_note_details','sales_order_details','entries'])
+             refresh_field('stock_uom')
+			}
+			
+		  }
+
+	   })
+		console.log(d.stock_uom)
+		
+    },    
+
+
 
 	// tax rate
 	rate: function(doc, cdt, cdn) {

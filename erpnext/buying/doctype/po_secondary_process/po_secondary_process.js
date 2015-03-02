@@ -84,3 +84,12 @@ cur_frm.cscript.update_totals = function(doc) {
 	doc.net_total = td;
 	refresh_many(['net_total']);
 }
+
+
+cur_frm.fields_dict['job_order'].get_query = function(doc){
+      return {
+			query: "erpnext.buying.doctype.po_secondary_process.po_secondary_process.get_job_order"
+		}
+
+
+}

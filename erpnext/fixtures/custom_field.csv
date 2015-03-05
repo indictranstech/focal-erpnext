@@ -19,128 +19,129 @@
 "Info:","","Valid DocType","One of: Button, Check, Code, Column Break, Currency, Data, Date, Datetime, Dynamic Link, Float, HTML, Image, Int, Link, Long Text, Password, Percent, Read Only, Section Break, Select, Small Text, Table, Text, Text Editor, Time","","","One of: 1, 2, 3, 4, 5, 6, 7, 8, 9","","","","Integer","0 or 1","0 or 1","0 or 1","","","0 or 1","","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1"
 "Start entering data below this line"
 "","""Customer Address-address_name""","Customer Address","Data","Address_name","","","","","address_name",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""Customer-address_list""","Customer","Data","Address List","lead_name","","","","address_list",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""Customer-customer_address""","Customer","Table","Customer Address","flag","","Customer Address","","customer_address",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-job_order""","Sales Order Item","Data","Job Order","base_amount","","","","job_order",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Sales Order Item-sp_total_price""","Sales Order Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-secondary_process_costing""","Sales Order Item","Link","Secondary Process Costing","c3","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-c3""","Sales Order Item","Column Break","c3","sm_total_price","","","","c3",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-sm_total_price""","Sales Order Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-sub_machining_costing""","Sales Order Item","Link","Sub Machining Costing","s2","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-s2""","Sales Order Item","Section Break","","pp_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-pp_total_price""","Sales Order Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-primary_process_costing""","Sales Order Item","Link","Primary Process Costing","c1","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-c1""","Sales Order Item","Column Break","c1","rm_total_price","","","","c1",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-rm_total_price""","Sales Order Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-raw_material_costing""","Sales Order Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-costing""","Sales Order Item","Section Break","Information","description","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-b_ref""","Sales Order Item","Data","b_ref","batch_no","","","","b_ref",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Sales Order Item-part_number""","Sales Order Item","Data","Part Number","batch_no","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-batch_no""","Sales Order Item","Data","Batch No","batch","","","","batch_no",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-batch""","Sales Order Item","Select","Batch","item_name","","Batch No (Turnkey)
+"","""Sales Order Item-batch""","Sales Order Item","Select","Batch","item_name","","
+Batch No (Turnkey)
 Batch No (Farmout)","","batch",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order Item-material_type""","Sales Order Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation-lead_time""","Quotation","Data","Lead Time","transaction_date","","","","lead_time",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation-customer_ref_no""","Quotation","Data","Customer Ref No","customer_ref","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation-customer_ref""","Quotation","Data","Customer Ref","customer_name","","","","customer_ref",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Item-uom_for_many""","Item","Link","Default Unit of Measure","stock_uom","","UOM","For Multiple Item . Unit of measurement of this item (e.g. Kg, Unit, No, Pair).","uom_for_many",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Customer Address-col""","Customer Address","Column Break","col","","","","","col",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Invoice-customer_ref_no""","Sales Invoice","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order-customer_ref_no""","Sales Order","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty-customer_ref_no""","Multiple Qty","Data","Customer Ref No","customer_name","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation for Mulitple Quantity-customer_ref_no""","Quotation for Mulitple Quantity","Data","Customer Ref No","customer_name","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Item-supplier""","Item","Link","Supplier Code","barcode","","Supplier","","supplier",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""Quotation Item-spec""","Quotation Item","Data","spec","reference","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Multiple Qty-t_label""","Multiple Qty","Data","t_label","","","","","t_label",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation for Mulitple Quantity-t_lable""","Quotation for Mulitple Quantity","Data","t_lable","","","","","t_lable",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-total11""","Multiple Qty Item","Section Break","Total","","","","","total11",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty15""","Multiple Qty Item","Data","","","","","","qty15",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty14""","Multiple Qty Item","Data","","","","","","qty14",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty13""","Multiple Qty Item","Data","","","","","","qty13",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty12""","Multiple Qty Item","Data","","","","","","qty12",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty11""","Multiple Qty Item","Data","","","","","","qty11",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-spec""","Multiple Qty Item","Data","spec","amount","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Multiple Qty-qty_label""","Multiple Qty","Data","qty_label","","","","","qty_label",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_9""","Multiple Quantity Item","Float","","","","","","r_qty_9",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_8""","Multiple Quantity Item","Float","","","","","","r_qty_8",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_7""","Multiple Quantity Item","Float","","","","","","r_qty_7",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-spec""","Multiple Quantity Item","Data","spec","parent1","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-total1""","Multiple Quantity Item","Section Break","Total","","","","","total1",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-total""","Multiple Quantity Item","Section Break","Amount","","","","","total",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-total""","Multiple Qty Item","Section Break","Amount","parent1","","","","total",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty10""","Multiple Qty Item","Data","qty10","qty9","","","","qty10",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty9""","Multiple Qty Item","Data","qty9","qty8","","","","qty9",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty8""","Multiple Qty Item","Data","qty8","qty7","","","","qty8",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty7""","Multiple Qty Item","Data","qty7","qty6","","","","qty7",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-qty6""","Multiple Qty Item","Data","qty6","total","","","","qty6",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-sp_total_price""","Multiple Qty Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-secondary_process_costing""","Multiple Qty Item","Link","SP Costing","c2","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-c2""","Multiple Qty Item","Column Break","c2","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-sm_total_price""","Multiple Qty Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-sub_machining_costing""","Multiple Qty Item","Link","SM Costing","s2","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-s2""","Multiple Qty Item","Section Break","","pp_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-pp_total_price""","Multiple Qty Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-primary_process_costing""","Multiple Qty Item","Link","PP Costing","c","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-c""","Multiple Qty Item","Column Break","c","rm_total_price","","","","c",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-rm_total_price""","Multiple Qty Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-raw_material_costing""","Multiple Qty Item","Link","RM Costing","s1","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-s1""","Multiple Qty Item","Section Break","Costing","description","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-remark""","Multiple Qty Item","Small Text","Remark","","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-material_type""","Multiple Qty Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Qty Item-part_number""","Multiple Qty Item","Data","Part Number","","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_6""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_6",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_5""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_5",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-r_qty_4""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_4",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-sp_total_price""","Multiple Quantity Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-secondary_process_costing""","Multiple Quantity Item","Link","Secondary Process Costing","c2","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-c2""","Multiple Quantity Item","Column Break","c2","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-sm_total_price""","Multiple Quantity Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-sub_machining_costing""","Multiple Quantity Item","Link","Sub Machining Costing","s1","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-s1""","Multiple Quantity Item","Section Break","","pp_total_price","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-pp_total_price""","Multiple Quantity Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-primary_process_costing""","Multiple Quantity Item","Link","Primary Process Costing","c","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-c""","Multiple Quantity Item","Column Break","c","q_and_r","","","","c",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-rm_total_price""","Multiple Quantity Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-raw_material_costing""","Multiple Quantity Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-costing""","Multiple Quantity Item","Section Break","Costing","description","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-remark""","Multiple Quantity Item","Small Text","Remark","","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-material_type""","Multiple Quantity Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Multiple Quantity Item-part_number""","Multiple Quantity Item","Data","Part Number","","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-costing""","Quotation Item","Section Break","Costing","pricing_rule","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""PO Primary Process-net_total""","PO Primary Process","Currency","Net Total","primary_process_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""PO Material-net_total""","PO Material","Currency","Net Total","remarks","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""PO Secondary Process-net_total""","PO Secondary Process","Currency","Net Total","secondary_process_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""PO Machining-net_total""","PO Machining","Currency","Net Total","sub_machining_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
-"","""Quotation Item-c3""","Quotation Item","Column Break","","quantity","","","","c3",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-machining_cost""","Quotation Item","Float","Machining Cost","quantity","","","","machining_cost",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-quantity""","Quotation Item","Float","Quantity","s2","","","","quantity",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-s2""","Quotation Item","Section Break","","sm_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-sp_total_price""","Quotation Item","Float","Price With Markup","sub_machining_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-secondary_process_costing""","Quotation Item","Link","Secondary Process Costing","sp_total_price","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-c2""","Quotation Item","Column Break","","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-sm_total_price""","Quotation Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-sub_machining_costing""","Quotation Item","Link","Sub Machining Costing","s1","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-s1""","Quotation Item","Section Break","","pp_total_price","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-pp_total_price""","Quotation Item","Float","Price With Markup","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-primary_process_costing""","Quotation Item","Link","Primary Process Costing","s","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-s""","Quotation Item","Column Break","","s","","","","s",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-rm_total_price""","Quotation Item","Float","Price With Markup","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-raw_material_costing""","Quotation Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-remark""","Quotation Item","Small Text","Remark","material_type","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation for Mulitple Quantity-qty_label""","Quotation for Mulitple Quantity","Data","qty_label","quantity_lable","","","","qty_label",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Item-material_type""","Item","Select","Material Type","name_and_description_section","","RFQ
+"","""Item-material_type""","Item","Select","Material Type","name_and_description_section","","
+RFQ
 Processes
 Sub-Machining","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Order-id_value""","Sales Order","Int","id_value","notification_email_address","","","","id_value",0,0,1,0,"","0",1,"",0,0,0,0,0,0
-"","""Secondary Process Details-exchange_rate""","Secondary Process Details","Float","Exchange Rate","currency","","","","exchange_rate",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Primary Process Details-exchange_rate""","Primary Process Details","Float","Exchange Rate","currency","","","","exchange_rate",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Raw Material Costing Details-unit_cost""","Raw Material Costing Details","Float","Unit Cost","exchange_rate","","","","unit_cost",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation for Mulitple Quantity-spec""","Quotation for Mulitple Quantity","Data","spec","rq3","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
-"","""Item-group""","Item","Link","Group","item_group","","Group","","group",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Invoice-po_no""","Sales Invoice","Data","PO No","conversion_rate","","","","po_no",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Delivery Note Item-part_number""","Delivery Note Item","Data","Part Number","item_name","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Invoice Item-part_number""","Sales Invoice Item","Data","Part Number","item_name","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Sales Invoice Item-job_order""","Sales Invoice Item","Data","Job Order","pricing_rule","","","","job_order",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Delivery Note Item-job_order""","Delivery Note Item","Data","Job Order","pricing_rule","","","","job_order",0,0,1,0,"","",0,"",0,0,0,0,0,0
-"","""Quotation Item-material_type""","Quotation Item","Data","Material Type","part_number","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Customer Address-col""","Customer Address","Column Break","col","","","","","col",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Customer-customer_address""","Customer","Table","Customer Address","flag","","Customer Address","","customer_address",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Job Order-material_type""","Job Order","Data","Material Type","part_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-material_type""","Quotation Item","Data","Material Type","part_number","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Delivery Note Item-job_order""","Delivery Note Item","Data","Job Order","pricing_rule","","","","job_order",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Invoice Item-job_order""","Sales Invoice Item","Data","Job Order","pricing_rule","","","","job_order",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Invoice Item-part_number""","Sales Invoice Item","Data","Part Number","item_name","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Delivery Note Item-part_number""","Delivery Note Item","Data","Part Number","item_name","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Invoice-po_no""","Sales Invoice","Data","PO No","conversion_rate","","","","po_no",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Item-group""","Item","Link","Group","item_group","","Group","","group",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation for Mulitple Quantity-spec""","Quotation for Mulitple Quantity","Data","spec","rq3","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Raw Material Costing Details-unit_cost""","Raw Material Costing Details","Float","Unit Cost","exchange_rate","","","","unit_cost",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Primary Process Details-exchange_rate""","Primary Process Details","Float","Exchange Rate","currency","","","","exchange_rate",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Secondary Process Details-exchange_rate""","Secondary Process Details","Float","Exchange Rate","currency","","","","exchange_rate",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order-id_value""","Sales Order","Int","id_value","notification_email_address","","","","id_value",0,0,1,0,"","0",1,"",0,0,0,0,0,0
+"","""Quotation for Mulitple Quantity-qty_label""","Quotation for Mulitple Quantity","Data","qty_label","quantity_lable","","","","qty_label",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Quotation Item-remark""","Quotation Item","Small Text","Remark","material_type","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-raw_material_costing""","Quotation Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-rm_total_price""","Quotation Item","Float","Price With Markup","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-s""","Quotation Item","Column Break","","s","","","","s",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-primary_process_costing""","Quotation Item","Link","Primary Process Costing","s","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-pp_total_price""","Quotation Item","Float","Price With Markup","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-s1""","Quotation Item","Section Break","","pp_total_price","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-sub_machining_costing""","Quotation Item","Link","Sub Machining Costing","s1","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-sm_total_price""","Quotation Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-c2""","Quotation Item","Column Break","","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-secondary_process_costing""","Quotation Item","Link","Secondary Process Costing","sp_total_price","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-sp_total_price""","Quotation Item","Float","Price With Markup","sub_machining_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-s2""","Quotation Item","Section Break","","sm_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-quantity""","Quotation Item","Float","Quantity","s2","","","","quantity",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-machining_cost""","Quotation Item","Float","Machining Cost","quantity","","","","machining_cost",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-c3""","Quotation Item","Column Break","","quantity","","","","c3",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""PO Machining-net_total""","PO Machining","Currency","Net Total","sub_machining_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""PO Secondary Process-net_total""","PO Secondary Process","Currency","Net Total","secondary_process_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""PO Material-net_total""","PO Material","Currency","Net Total","remarks","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""PO Primary Process-net_total""","PO Primary Process","Currency","Net Total","primary_process_details","","","","net_total",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""Quotation Item-costing""","Quotation Item","Section Break","Costing","pricing_rule","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-part_number""","Multiple Quantity Item","Data","Part Number","","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-material_type""","Multiple Quantity Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-remark""","Multiple Quantity Item","Small Text","Remark","","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-costing""","Multiple Quantity Item","Section Break","Costing","description","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-raw_material_costing""","Multiple Quantity Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-rm_total_price""","Multiple Quantity Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-c""","Multiple Quantity Item","Column Break","c","q_and_r","","","","c",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-primary_process_costing""","Multiple Quantity Item","Link","Primary Process Costing","c","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-pp_total_price""","Multiple Quantity Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-s1""","Multiple Quantity Item","Section Break","","pp_total_price","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-sub_machining_costing""","Multiple Quantity Item","Link","Sub Machining Costing","s1","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-sm_total_price""","Multiple Quantity Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-c2""","Multiple Quantity Item","Column Break","c2","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-secondary_process_costing""","Multiple Quantity Item","Link","Secondary Process Costing","c2","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-sp_total_price""","Multiple Quantity Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_4""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_4",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_5""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_5",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_6""","Multiple Quantity Item","Float","","r_qty3","","","","r_qty_6",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-part_number""","Multiple Qty Item","Data","Part Number","","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-material_type""","Multiple Qty Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-remark""","Multiple Qty Item","Small Text","Remark","","","","","remark",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-s1""","Multiple Qty Item","Section Break","Costing","description","","","","s1",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-raw_material_costing""","Multiple Qty Item","Link","RM Costing","s1","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-rm_total_price""","Multiple Qty Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-c""","Multiple Qty Item","Column Break","c","rm_total_price","","","","c",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-primary_process_costing""","Multiple Qty Item","Link","PP Costing","c","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-pp_total_price""","Multiple Qty Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-s2""","Multiple Qty Item","Section Break","","pp_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-sub_machining_costing""","Multiple Qty Item","Link","SM Costing","s2","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-sm_total_price""","Multiple Qty Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-c2""","Multiple Qty Item","Column Break","c2","sm_total_price","","","","c2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-secondary_process_costing""","Multiple Qty Item","Link","SP Costing","c2","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-sp_total_price""","Multiple Qty Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty6""","Multiple Qty Item","Data","qty6","total","","","","qty6",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty7""","Multiple Qty Item","Data","qty7","qty6","","","","qty7",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty8""","Multiple Qty Item","Data","qty8","qty7","","","","qty8",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty9""","Multiple Qty Item","Data","qty9","qty8","","","","qty9",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty10""","Multiple Qty Item","Data","qty10","qty9","","","","qty10",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-total""","Multiple Qty Item","Section Break","Amount","parent1","","","","total",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-total""","Multiple Quantity Item","Section Break","Amount","","","","","total",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-total1""","Multiple Quantity Item","Section Break","Total","","","","","total1",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-spec""","Multiple Quantity Item","Data","spec","parent1","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_7""","Multiple Quantity Item","Float","","","","","","r_qty_7",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_8""","Multiple Quantity Item","Float","","","","","","r_qty_8",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Quantity Item-r_qty_9""","Multiple Quantity Item","Float","","","","","","r_qty_9",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty-qty_label""","Multiple Qty","Data","qty_label","","","","","qty_label",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Multiple Qty Item-spec""","Multiple Qty Item","Data","spec","amount","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty11""","Multiple Qty Item","Data","","","","","","qty11",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty12""","Multiple Qty Item","Data","","","","","","qty12",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty13""","Multiple Qty Item","Data","","","","","","qty13",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty14""","Multiple Qty Item","Data","","","","","","qty14",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-qty15""","Multiple Qty Item","Data","","","","","","qty15",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty Item-total11""","Multiple Qty Item","Section Break","Total","","","","","total11",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation for Mulitple Quantity-t_lable""","Quotation for Mulitple Quantity","Data","t_lable","","","","","t_lable",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty-t_label""","Multiple Qty","Data","t_label","","","","","t_label",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation Item-spec""","Quotation Item","Data","spec","reference","","","","spec",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Item-supplier""","Item","Link","Supplier Code","barcode","","Supplier","","supplier",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""Quotation for Mulitple Quantity-customer_ref_no""","Quotation for Mulitple Quantity","Data","Customer Ref No","customer_name","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Multiple Qty-customer_ref_no""","Multiple Qty","Data","Customer Ref No","customer_name","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order-customer_ref_no""","Sales Order","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Invoice-customer_ref_no""","Sales Invoice","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Item-uom_for_many""","Item","Link","Default Unit of Measure","stock_uom","","UOM","For Multiple Item . Unit of measurement of this item (e.g. Kg, Unit, No, Pair).","uom_for_many",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation-customer_ref""","Quotation","Data","Customer Ref","customer_name","","","","customer_ref",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation-customer_ref_no""","Quotation","Data","Customer Ref No","customer_ref","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Quotation-lead_time""","Quotation","Data","Lead Time","transaction_date","","","","lead_time",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-material_type""","Sales Order Item","Data","Material Type","item_name","","","","material_type",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-batch_no""","Sales Order Item","Data","Batch No","batch","","","","batch_no",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-part_number""","Sales Order Item","Data","Part Number","batch_no","","","","part_number",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-b_ref""","Sales Order Item","Data","b_ref","batch_no","","","","b_ref",0,0,1,0,"","",1,"",0,0,0,0,0,0
+"","""Sales Order Item-costing""","Sales Order Item","Section Break","Information","description","","","","costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-raw_material_costing""","Sales Order Item","Link","Raw Material Costing","costing","","Raw Material Cost Sheet","","raw_material_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-rm_total_price""","Sales Order Item","Float","RM Total Price","raw_material_costing","","","","rm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-c1""","Sales Order Item","Column Break","c1","rm_total_price","","","","c1",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-primary_process_costing""","Sales Order Item","Link","Primary Process Costing","c1","","Primary Process Costing","","primary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-pp_total_price""","Sales Order Item","Float","PP Total Price","primary_process_costing","","","","pp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-s2""","Sales Order Item","Section Break","","pp_total_price","","","","s2",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-sub_machining_costing""","Sales Order Item","Link","Sub Machining Costing","s2","","Sub Machining Costing","","sub_machining_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-sm_total_price""","Sales Order Item","Float","SM Total Price","sub_machining_costing","","","","sm_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-c3""","Sales Order Item","Column Break","c3","sm_total_price","","","","c3",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-secondary_process_costing""","Sales Order Item","Link","Secondary Process Costing","c3","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-sp_total_price""","Sales Order Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
+"","""Sales Order Item-job_order""","Sales Order Item","Data","Job Order","base_amount","","","","job_order",0,0,1,0,"","",1,"",0,0,0,0,0,0

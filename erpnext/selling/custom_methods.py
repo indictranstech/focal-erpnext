@@ -2,10 +2,14 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _, throw
-from frappe.utils import flt, cint, add_days
+from frappe.utils import flt, cint, cstr ,add_days
 import json
 from erpnext.accounts.doctype.pricing_rule.pricing_rule import get_pricing_rule_for_item
 from erpnext.setup.utils import get_exchange_rate
+from frappe.model.delete_doc import check_if_doc_is_linked
+from frappe.model.delete_doc import check_if_doc_is_dynamically_linked
+from frappe.model.delete_doc import delete_doc
+
 
 
 
@@ -74,7 +78,7 @@ def create_address(doc,method):
 			c.save()
 			addr.address_name = c.name
 			frappe.db.commit()
-		if  frappe.db.exists('Address',addr.address_name):
+		if  frappe.db.exists('Address',addr.address_name) and addr.address_name:
 			new_addr = frappe.get_doc('Address',addr.address_name)	
 			new_addr.address_title = addr.address_title
 			new_addr.address_type = addr.address_type
@@ -90,6 +94,11 @@ def create_address(doc,method):
 			new_addr.save()
 			frappe.db.commit()
 
+
+
+
+
+
 def update_customer_name(doc,method):
 	for addr in doc.get('customer_address'):
 		if addr.address_name:
@@ -97,5 +106,24 @@ def update_customer_name(doc,method):
 
 
 
-		 	
+def delete_address(doc,method):
+	if doc.address_list:
+		address_list = cstr(doc.address_list).split()
+		for d in address_list:
+			frappe.delete_doc('Address',d)
+		doc.address_list = ''	
+
+
+
+def check_link(doc,method):
+	if doc.address_list:
+		address_list = cstr(doc.address_list).split()
+		for d in address_list:
+			if frappe.db.exists('Address',d):
+				doc = frappe.get_doc('Address',d)
+				check_if_doc_is_linked(doc)
+				check_if_doc_is_dynamically_linked(doc)	
+
+	
+
 

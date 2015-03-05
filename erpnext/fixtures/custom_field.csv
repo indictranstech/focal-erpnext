@@ -18,6 +18,9 @@
 "Type:","Data (text)","Link","Select","Data","Select","Select","Text","Text","Data","Int","Check","Check","Check","Data","Text","Check","Data","Check","Check","Check","Check","Check","Check"
 "Info:","","Valid DocType","One of: Button, Check, Code, Column Break, Currency, Data, Date, Datetime, Dynamic Link, Float, HTML, Image, Int, Link, Long Text, Password, Percent, Read Only, Section Break, Select, Small Text, Table, Text, Text Editor, Time","","","One of: 1, 2, 3, 4, 5, 6, 7, 8, 9","","","","Integer","0 or 1","0 or 1","0 or 1","","","0 or 1","","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1"
 "Start entering data below this line"
+"","""Customer Address-address_name""","Customer Address","Data","Address_name","","","","","address_name",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""Customer-address_list""","Customer","Data","Address List","lead_name","","","","address_list",0,0,0,0,"","",1,"",0,0,0,0,0,0
+"","""Customer-customer_address""","Customer","Table","Customer Address","flag","","Customer Address","","customer_address",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Order Item-job_order""","Sales Order Item","Data","Job Order","base_amount","","","","job_order",0,0,1,0,"","",1,"",0,0,0,0,0,0
 "","""Sales Order Item-sp_total_price""","Sales Order Item","Float","SP Total Price","secondary_process_costing","","","","sp_total_price",0,0,1,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Order Item-secondary_process_costing""","Sales Order Item","Link","Secondary Process Costing","c3","","Secondary Process Costing","","secondary_process_costing",0,0,0,0,"","",0,"",0,0,0,0,0,0
@@ -40,9 +43,7 @@ Batch No (Farmout)","","batch",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Quotation-lead_time""","Quotation","Data","Lead Time","transaction_date","","","","lead_time",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Quotation-customer_ref_no""","Quotation","Data","Customer Ref No","customer_ref","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
 "","""Quotation-customer_ref""","Quotation","Data","Customer Ref","customer_name","","","","customer_ref",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Customer Address-address_name""","Customer Address","Data","Address_name","","","","","address_name",0,0,0,0,"","",1,"",0,0,0,0,0,0
 "","""Item-uom_for_many""","Item","Link","Default Unit of Measure","stock_uom","","UOM","For Multiple Item . Unit of measurement of this item (e.g. Kg, Unit, No, Pair).","uom_for_many",0,0,0,0,"","",0,"",0,0,0,0,0,0
-"","""Customer-customer_address""","Customer","Table","Customer Address","flag","","Customer Address","","customer_address",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Customer Address-col""","Customer Address","Column Break","col","","","","","col",0,0,0,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Invoice-customer_ref_no""","Sales Invoice","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0
 "","""Sales Order-customer_ref_no""","Sales Order","Data","Customer Ref No","customer","","","","customer_ref_no",0,0,1,0,"","",0,"",0,0,0,0,0,0

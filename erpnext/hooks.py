@@ -58,8 +58,8 @@ doc_events = {
 		
 	},
 	"Customer":{
-	    "validate":"erpnext.selling.custom_methods.create_address",
-	    "on_update":"erpnext.selling.custom_methods.update_customer_name"
+	    "validate":["erpnext.selling.custom_methods.create_address","erpnext.selling.custom_methods.check_link","erpnext.selling.custom_methods.delete_address"],
+	    "on_update":["erpnext.selling.custom_methods.update_customer_name"],
 	}
 }
 

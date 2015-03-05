@@ -47,12 +47,28 @@ cur_frm.cscript.refresh = function(doc, dt, dn) {
 cur_frm.cscript.validate = function(doc, dt, dn) {
 	if(doc.lead_name) frappe.model.clear_doc("Lead", doc.lead_name);
 	setTimeout(function(){
-      refresh_field('customer_address')},2000)
+      refresh_field(['customer_address','address_list'])},2000)
 }
 
-cur_frm.cscript.customer_address_remove =function(doc,dt,dn){
-}
+cur_frm.cscript.customer_address_remove =function(doc,cdt,cdn){
+    frappe.call({
+    	method:"erpnext.selling.doctype.customer.customer.get_address_name",
+    	args:{"row_name":cdn},
+    	callback:function(r){
+    		if (!doc.address_list){
+    			doc.address_list = r.message
+    		}else{
+    			doc.address_list = doc.address_list+' '+r.message
+    		}
+    		
+    		refresh_field('address_list')
 
+    	}
+
+
+    })
+
+}
 
 
 

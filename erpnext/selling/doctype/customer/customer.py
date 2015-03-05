@@ -7,9 +7,14 @@ from frappe.model.naming import make_autoname
 from frappe import msgprint, _
 import frappe.defaults
 from frappe.utils import cstr,cint
+from frappe.model.delete_doc import check_if_doc_is_linked
+from frappe.model.delete_doc import check_if_doc_is_dynamically_linked
+
+
 
 from erpnext.utilities.transaction_base import TransactionBase
 from erpnext.accounts.party import create_party_account
+
 
 class Customer(TransactionBase):
 
@@ -95,7 +100,7 @@ class Customer(TransactionBase):
 		self.update_credit_days_limit()
 		#create address and contact from lead
 		self.create_lead_address_contact()
-		# self.create_address()
+
 
 
 
@@ -188,40 +193,9 @@ def get_customer_list(doctype, txt, searchfield, start, page_len, filters):
 		("%%%s%%" % txt, "%%%s%%" % txt, "%%%s%%" % txt, "%%%s%%" % txt, start, page_len))
 
 
-def create_address(doc,method):
-	frappe.errprint(doc.name)
-	for addr in doc.get('customer_address'):
-		if not frappe.db.exists('Address',addr.address_name):
-			frappe.errprint("in address")
-			c = frappe.new_doc('Address')
-			c.address_title = addr.address_title
-			c.address_type = addr.address_type
-			c.address_line1 = addr.address_line_1 or ''
- 			c.address_line2 = addr.address_line_2 or ''
-			c.city = addr.city or ''
-			c.state = addr.state or ''
-			c.pincode = addr.pincode or ''
-			c.country = addr.country or  '' 
-			c.phone = addr.phone  or ''
-			c.preferred_billing_address = addr.preferred_billing_address
-			c.preferred_shipping_address = addr.preferred_shipping_address
-			c.customer = doc.name	
-			c.save()
-			addr.address_name = c.name
-			frappe.db.commit()
-		if  frappe.db.exists('Address',addr.address_name):
-			new_addr = frappe.get_doc('Address',addr.address_name)	
-			new_addr.address_title = addr.address_title
-			new_addr.address_type = addr.address_type
-			new_addr.address_line1 = addr.address_line_1 or ''
- 			new_addr.address_line2 = addr.address_line_2 or ''
-			new_addr.city = addr.city or ''
-			new_addr.state = addr.state or ''
-			new_addr.pincode = addr.pincode or ''
-			new_addr.country = addr.country or  '' 
-			new_addr.phone = addr.phone  or ''
-			new_addr.preferred_billing_address = addr.preferred_billing_address
-			new_addr.preferred_shipping_address = addr.preferred_shipping_address
-			new_addr.save()
-			frappe.db.commit()
 
+@frappe.whitelist()
+def get_address_name(row_name):
+	if row_name:
+		address = frappe.db.get_value('Customer Address',row_name,'address_name')			
+ 		return address

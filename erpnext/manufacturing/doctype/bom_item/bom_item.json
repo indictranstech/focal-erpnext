@@ -79,7 +79,9 @@
    "fieldtype": "Float", 
    "in_list_view": 1, 
    "label": "Rate", 
+   "options": "currency", 
    "permlevel": 0, 
+   "precision": "2", 
    "reqd": 1
   }, 
   {
@@ -134,7 +136,7 @@
  ], 
  "idx": 1, 
  "istable": 1, 
- "modified": "2014-05-29 15:56:31.859868", 
+ "modified": "2015-03-18 15:13:58.116067", 
  "modified_by": "Administrator", 
  "module": "Manufacturing", 
  "name": "BOM Item", 

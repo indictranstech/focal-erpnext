@@ -2,7 +2,7 @@
  "allow_import": 1, 
  "autoname": "naming_series:", 
  "creation": "2013-05-24 19:29:05", 
- "default_print_format": "", 
+ "default_print_format": "Sales Invoice New", 
  "docstatus": 0, 
  "doctype": "DocType", 
  "document_type": "Transaction", 
@@ -1212,7 +1212,11 @@
  "icon": "icon-file-text", 
  "idx": 1, 
  "is_submittable": 1, 
+<<<<<<< HEAD
  "modified": "2015-01-07 22:20:18.140595", 
+=======
+ "modified": "2015-03-25 18:25:12.764892", 
+>>>>>>> 46077a06a52650182e6925d086a9c7847ee0a554
  "modified_by": "Administrator", 
  "module": "Accounts", 
  "name": "Sales Invoice", 

@@ -246,33 +246,43 @@ class Quotation(SellingController):
 					if c.quote_ref:
 						# frappe.errprint("in the if")
 						# frappe.errprint(c.pp_spec_type)
-						self.update_rfq_with_quotattion_values(c,args,d)
-						rfqs.append(c.quote_ref)
+						rfq = self.update_rfq_with_quotattion_values(c,args,d)
+						if rfq:
+							rfqs.append(c.quote_ref)
 		return rfqs
 
 	def update_rfq_with_quotattion_values(self,c,args,d):
 		rfq=frappe.get_doc(args['rfq_doctype'],c.quote_ref)
-		rfqc=rfq.append(args['rfq_child'],{})
-		rfqc.quotation_no=self.name
-		rfqc.part_no=d.part_number
-		rfqc.drawing_no=d.item_code
-		rfqc.mat_spec__type=d.spec
+		if rfq.docstatus == 0:
+			rfqc=rfq.append(args['rfq_child'],{})
+			rfqc.quotation_no=self.name
+			rfqc.part_no=d.part_number
+			rfqc.drawing_no=d.item_code
+			rfqc.mat_spec__type=d.spec
 
-		if args['rfq_doctype']=='Material RFQ':
-			rfqc.mat_spec_type=d.spec
-			rfqc.od=cstr(c.od)+' '+cstr(c.od_uom)
-			rfqc.id=cstr(c.id)+' '+cstr(c.id_uom)
-			rfqc.lg=cstr(c.lg)+' '+cstr(c.lg_uom)
-		elif args['rfq_doctype']=='Primary Process RFQ':
-			rfqc.primary_process=c.spec
-			rfqc.pp_spec_type=cstr(c.spec)+' '+cstr(c.type)
-		elif args['rfq_doctype']=='Secondary Process RFQ':
-			rfqc.secondary_process=c.spec
-			rfqc.sp_spec_type=cstr(c.spec)+' '+cstr(c.type)
-		elif args['rfq_doctype']=='Sub Machining RFQ':
-			rfqc.sub_machining=c.type
-			rfqc.sm_type=cstr(c.type)
-		rfq.save(ignore_permissions=True)
+			if args['rfq_doctype']=='Material RFQ':
+				rfqc.mat_spec_type=d.spec
+				rfqc.od=cstr(c.od)+' '+cstr(c.od_uom)
+				rfqc.id=cstr(c.id)+' '+cstr(c.id_uom)
+				rfqc.lg=cstr(c.lg)+' '+cstr(c.lg_uom)
+			elif args['rfq_doctype']=='Primary Process RFQ':
+				rfqc.primary_process=c.spec
+				rfqc.pp_spec_type=cstr(c.spec)+' '+cstr(c.type)
+			elif args['rfq_doctype']=='Secondary Process RFQ':
+				rfqc.secondary_process=c.spec
+				rfqc.sp_spec_type=cstr(c.spec)+' '+cstr(c.type)
+			elif args['rfq_doctype']=='Sub Machining RFQ':
+				rfqc.sub_machining=c.type
+				rfqc.sm_type=cstr(c.type)
+			rfq.save(ignore_permissions=True)
+			return True
+		elif rfq.docstatus == 1:
+			frappe.msgprint(_("Warning: RFQ Already Submitted"))
+			return False
+		elif rfq.docstatus == 2:
+			frappe.msgprint(_("Warning: RFQ Is in Cancelled state so can't update"))
+			return False
+
 		return "done"
 #roshan
 @frappe.whitelist()

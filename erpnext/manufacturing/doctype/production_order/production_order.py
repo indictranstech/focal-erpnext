@@ -48,7 +48,7 @@ class ProductionOrder(Document):
 		if self.sales_order:
 			so = frappe.db.sql("""select name, delivery_date from `tabSales Order`
 				where name=%s and docstatus = 1""", self.sales_order, as_dict=1)
-			frappe.errprint(so)
+		
 			if len(so):
 				if not self.expected_delivery_date:
 					self.expected_delivery_date = so[0].delivery_date
@@ -167,6 +167,7 @@ class ProductionOrder(Document):
 		for d in self.get('bom_operation') :
 			cost=(flt(d.set_up_time)+flt(d.time_in_mins)+flt(d.load_up_time)+flt(d.tip_change_time)+flt(d.inspection_time)) * (flt(d.hour_rate))
 			d.operating_cost=cost
+			
 
 		if self.expected_production_completion_date and self.expected_delivery_date:
 			if self.expected_delivery_date > self.expected_production_completion_date:

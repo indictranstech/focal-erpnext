@@ -53,7 +53,7 @@
   }, 
   {
    "fieldname": "set_up_time", 
-   "fieldtype": "Data", 
+   "fieldtype": "Float", 
    "label": "Set Up Time(mins)", 
    "permlevel": 0
   }, 
@@ -69,19 +69,19 @@
   }, 
   {
    "fieldname": "load_up_time", 
-   "fieldtype": "Data", 
+   "fieldtype": "Float", 
    "label": "Load Up Time(mins)", 
    "permlevel": 0
   }, 
   {
    "fieldname": "tip_change_time", 
-   "fieldtype": "Data", 
+   "fieldtype": "Float", 
    "label": "Tip Change Time(mins)", 
    "permlevel": 0
   }, 
   {
    "fieldname": "inspection_time", 
-   "fieldtype": "Data", 
+   "fieldtype": "Float", 
    "label": "Inspection Time(mins)", 
    "permlevel": 0
   }, 
@@ -112,7 +112,7 @@
  ], 
  "idx": 1, 
  "istable": 1, 
- "modified": "2015-08-26 16:03:53.679642", 
+ "modified": "2015-09-28 23:25:49.084631", 
  "modified_by": "Administrator", 
  "module": "Manufacturing", 
  "name": "BOM Operation", 

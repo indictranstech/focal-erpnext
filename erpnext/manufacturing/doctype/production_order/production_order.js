@@ -211,7 +211,7 @@ function calculate_total_cost (d) {
 	 	hr= d.hour_rate
 	 }
 
-	d.operating_cost= (parseFloat(sut) + parseFloat(tim) + parseFloat(lut) + parseFloat(tct) + (parseFloat(it) * parseFloat(hr)))
+	d.operating_cost= (parseFloat(sut) + parseFloat(tim) + parseFloat(lut) + parseFloat(tct) + parseFloat(it)) * parseFloat(hr)
 	refresh_field("bom_operation")
 }
 

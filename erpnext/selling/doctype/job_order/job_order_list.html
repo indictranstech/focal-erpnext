@@ -1,0 +1,53 @@
+<div class="row" style="max-height: 30px;">
+	<div class="col-xs-12">
+		<div class="text-ellipsis">
+			{%= list.get_avatar_and_id(doc) %}
+			{% var icon = {
+				"Late Delivery": "icon-star"
+			}[doc.late_delivery]; %}
+			{% if(doc.late_delivery) { %}
+				<span class="label label-info filterable"
+					style="background-color:#E80000"
+					data-filter="late_delivery,=,{%= doc.late_delivery %}"
+					title="{%= doc.late_delivery %}">
+					<i class="{%= icon %}" style="color:#E80000"></i>
+				</span>
+			{% } %}			
+			{% var icon = {
+				"PO against Job Order": "icon-star"
+			}[doc.po_against_jo]; %}
+			{% if(doc.po_against_jo) { %}
+				<span class="label label-info filterable"
+					style="background-color:#009900"
+					data-filter="po_against_jo,=,{%= doc.po_against_jo %}"
+					title="{%= doc.po_against_jo %}">
+					<i class="{%= icon %}" style="color:#009900"></i>
+				</span>
+			{% } %}
+			{% if(doc.customer_code) { %}
+				<span class="label label-default filterable"
+					data-filter="customer_code,=,{%= doc.customer_code %}">
+					{%= doc.customer_code %}
+				</span>
+			{% } %}
+			{% if(doc.drawing_no) { %}
+				<span class="label label-default filterable"
+					data-filter="drawing_no,=,{%= doc.drawing_no %}">
+					{%= doc.drawing_no %}
+				</span>
+			{% } %}
+			{% if(doc.part_no) { %}
+				<span class="label label-default filterable"
+					data-filter="part_no,=,{%= doc.part_no %}">
+					{%= doc.part_no %}
+				</span>
+			{% } %}
+			{% if(doc.material_status) { %}
+				<span class="label label-default filterable"
+					data-filter="material_status,=,{%= doc.material_status %}">
+					{%= doc.material_status %}
+				</span>
+			{% } %}
+		</div>
+	</div>
+</div>

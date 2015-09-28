@@ -1,0 +1,87 @@
+{
+ "autoname": "OPPID/.#####", 
+ "creation": "2014-06-16 08:35:32.682617", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "operation", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Operation", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "set_up__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Set Up  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "cycle_time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Cycle Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "load_up__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Load Up  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "tip_change__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Tip Change  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "column_break_6", 
+   "fieldtype": "Column Break", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "inspection_time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Inspection Time", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "qty", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "Qty", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "operator", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Operator", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "date", 
+   "fieldtype": "Date", 
+   "in_list_view": 1, 
+   "label": "Date", 
+   "permlevel": 0
+  }
+ ], 
+ "istable": 1, 
+ "modified": "2014-07-16 01:54:32.023938", 
+ "modified_by": "Administrator", 
+ "module": "Manufacturing", 
+ "name": "Operation Inpection Details", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

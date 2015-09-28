@@ -1,0 +1,66 @@
+{
+ "autoname": "OPPDT/.####", 
+ "creation": "2014-06-16 08:33:17.259554", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "operation", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Operation", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "set_up__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Set Up  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "cycle_time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Cycle Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "column_break_4", 
+   "fieldtype": "Column Break", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "load_up__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Load Up  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "tip_change__time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Tip Change  Time ", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "inspection_time", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Inspection Time", 
+   "permlevel": 0
+  }
+ ], 
+ "istable": 1, 
+ "modified": "2014-07-16 01:55:44.465745", 
+ "modified_by": "Administrator", 
+ "module": "Manufacturing", 
+ "name": "Operational Details", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

@@ -1,0 +1,95 @@
+{
+ "creation": "2014-06-26 02:27:41.965446", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "refresh_btn", 
+   "fieldtype": "Button", 
+   "label": "Refresh", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "section_break_2", 
+   "fieldtype": "Section Break", 
+   "label": "Multiple Range", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "range", 
+   "fieldtype": "Table", 
+   "in_list_view": 0, 
+   "label": "Range", 
+   "options": "Quantity Range", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "section_break_4", 
+   "fieldtype": "Section Break", 
+   "label": "Multiple Qty", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "qty1", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "Quantity 1", 
+   "permlevel": 0, 
+   "reqd": 1
+  }, 
+  {
+   "fieldname": "qty2", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "Quantity 2", 
+   "permlevel": 0, 
+   "reqd": 1
+  }, 
+  {
+   "fieldname": "qty3", 
+   "fieldtype": "Int", 
+   "label": "Quantity 3", 
+   "permlevel": 0, 
+   "reqd": 1
+  }, 
+  {
+   "fieldname": "column_break_7", 
+   "fieldtype": "Column Break", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "qty4", 
+   "fieldtype": "Int", 
+   "label": "Quantity 4", 
+   "permlevel": 0, 
+   "reqd": 1
+  }, 
+  {
+   "fieldname": "qty5", 
+   "fieldtype": "Int", 
+   "label": "Quantity 5", 
+   "permlevel": 0, 
+   "reqd": 1
+  }
+ ], 
+ "icon": "icon-flag", 
+ "issingle": 1, 
+ "modified": "2014-07-10 17:21:08.562112", 
+ "modified_by": "Administrator", 
+ "module": "Selling", 
+ "name": "Range Master", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [
+  {
+   "create": 1, 
+   "permlevel": 0, 
+   "read": 1, 
+   "role": "All", 
+   "write": 1
+  }
+ ], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

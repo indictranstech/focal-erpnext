@@ -1,0 +1,14 @@
+{
+ "creation": "2014-06-27 14:14:23.782797", 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "is_standard": "Yes", 
+ "modified": "2014-06-27 14:14:23.782797", 
+ "modified_by": "Administrator", 
+ "module": "Selling", 
+ "name": "Quotation History", 
+ "owner": "Administrator", 
+ "ref_doctype": "Quotation for Mulitple Quantity", 
+ "report_name": "Quotation History", 
+ "report_type": "Script Report"
+}

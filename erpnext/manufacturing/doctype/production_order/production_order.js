@@ -151,3 +151,67 @@ cur_frm.set_query("bom_no", function(doc) {
 });
 
 cur_frm.add_fetch('bom_no', 'total_fixed_cost', 'total_fixed_cost');
+
+
+
+cur_frm.cscript.set_up_time = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+cur_frm.cscript.time_in_mins = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+cur_frm.cscript.load_up_time = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+cur_frm.cscript.tip_change_time = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+cur_frm.cscript.inspection_time = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+cur_frm.cscript.hour_rate = function(doc,cdt,cdn) {
+	d = locals[cdt][cdn]
+	calculate_total_cost(d)
+}
+
+
+function calculate_total_cost (d) {
+	sut = 0.0; tim = 0.0; lut = 0.0; tct = 0.0; it = 0.0; hr = 1.0;
+	if(d.set_up_time){
+	 	sut = d.set_up_time
+	 }
+	 
+	 if(d.time_in_mins){
+	 	tim = d.time_in_mins
+	 }
+	 
+	 if(d.load_up_time){
+	 	lut= d.load_up_time
+	 }
+
+	 if(d.tip_change_time){
+	 	tct= d.tip_change_time
+	 }
+
+	 if(d.inspection_time){
+	 	it= d.inspection_time
+	 }
+
+	 if(d.hour_rate){
+	 	hr= d.hour_rate
+	 }
+
+	d.operating_cost= (parseFloat(sut) + parseFloat(tim) + parseFloat(lut) + parseFloat(tct) + (parseFloat(it) * parseFloat(hr)))
+	refresh_field("bom_operation")
+}
+

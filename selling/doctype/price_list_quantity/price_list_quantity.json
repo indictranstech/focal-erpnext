@@ -1,0 +1,51 @@
+{
+ "creation": "2014-06-26 02:57:05.584030", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "customer_code", 
+   "fieldtype": "Link", 
+   "in_list_view": 1, 
+   "label": "Customer Code", 
+   "options": "Customer", 
+   "permlevel": 0, 
+   "read_only": 1
+  }, 
+  {
+   "fieldname": "quantity", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "Quantity", 
+   "permlevel": 0, 
+   "read_only": 1
+  }, 
+  {
+   "fieldname": "rate", 
+   "fieldtype": "Currency", 
+   "in_list_view": 1, 
+   "label": "rate", 
+   "permlevel": 0, 
+   "read_only": 1
+  }, 
+  {
+   "fieldname": "range_qty", 
+   "fieldtype": "Data", 
+   "in_list_view": 1, 
+   "label": "Range", 
+   "permlevel": 0, 
+   "read_only": 1
+  }
+ ], 
+ "istable": 1, 
+ "modified": "2014-06-30 17:53:29.935775", 
+ "modified_by": "Administrator", 
+ "module": "Selling", 
+ "name": "Price List Quantity", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

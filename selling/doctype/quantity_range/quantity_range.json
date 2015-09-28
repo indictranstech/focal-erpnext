@@ -1,0 +1,33 @@
+{
+ "creation": "2014-06-26 02:21:22.980443", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "from_quantity", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "From Quantity", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "to_quantity", 
+   "fieldtype": "Int", 
+   "in_list_view": 1, 
+   "label": "To Quantity", 
+   "permlevel": 0
+  }
+ ], 
+ "icon": "icon-shopping-cart", 
+ "istable": 1, 
+ "modified": "2014-06-26 02:21:22.980443", 
+ "modified_by": "Administrator", 
+ "module": "Selling", 
+ "name": "Quantity Range", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}

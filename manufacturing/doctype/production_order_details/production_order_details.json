@@ -1,0 +1,141 @@
+{
+ "autoname": "naming_series:", 
+ "creation": "2014-06-16 08:41:59.078274", 
+ "default_print_format": "Production Order Details New", 
+ "docstatus": 0, 
+ "doctype": "DocType", 
+ "document_type": "Transaction", 
+ "fields": [
+  {
+   "fieldname": "basic_details", 
+   "fieldtype": "Section Break", 
+   "label": "Basic Details", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "production_number", 
+   "fieldtype": "Link", 
+   "in_list_view": 1, 
+   "label": "Production Number", 
+   "options": "Production Order", 
+   "permlevel": 0, 
+   "read_only": 1
+  }, 
+  {
+   "fieldname": "part_name", 
+   "fieldtype": "Data", 
+   "label": "Part Name", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "part_number", 
+   "fieldtype": "Data", 
+   "label": "Part Number", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "drawing_number", 
+   "fieldtype": "Data", 
+   "label": "Drawing Number", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "customer_code", 
+   "fieldtype": "Link", 
+   "label": "Customer Code", 
+   "options": "Customer", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "customer_name", 
+   "fieldtype": "Read Only", 
+   "in_list_view": 1, 
+   "label": "Customer Name", 
+   "options": "customer_code.customer_name", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "count", 
+   "fieldtype": "Data", 
+   "label": "Count", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
+   "fieldname": "column_break_8", 
+   "fieldtype": "Column Break", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "sales_order_number", 
+   "fieldtype": "Link", 
+   "label": "Sales Order Number", 
+   "options": "Sales Order", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "start_date", 
+   "fieldtype": "Date", 
+   "label": "Start Date", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "due_date", 
+   "fieldtype": "Date", 
+   "label": "Due Date", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "quantity", 
+   "fieldtype": "Data", 
+   "label": "Quantity", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "operation_table_1", 
+   "fieldtype": "Section Break", 
+   "label": "Operation Table 1", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "operational_details", 
+   "fieldtype": "Table", 
+   "label": "Operational Details", 
+   "options": "Operational Details", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "operation_table_2", 
+   "fieldtype": "Section Break", 
+   "label": "Operation Table 2", 
+   "permlevel": 0
+  }, 
+  {
+   "fieldname": "operation_inpection_details", 
+   "fieldtype": "Table", 
+   "label": "Operation Inpection Details", 
+   "options": "Operation Inpection Details", 
+   "permlevel": 0
+  }
+ ], 
+ "icon": "icon-cogs", 
+ "modified": "2015-03-16 14:56:45.005707", 
+ "modified_by": "Administrator", 
+ "module": "Manufacturing", 
+ "name": "Production Order Details", 
+ "name_case": "", 
+ "owner": "Administrator", 
+ "permissions": [
+  {
+   "create": 1, 
+   "delete": 1, 
+   "permlevel": 0, 
+   "print": 1, 
+   "read": 1, 
+   "role": "All", 
+   "write": 1
+  }
+ ], 
+ "sort_field": "modified", 
+ "sort_order": "DESC"
+}
